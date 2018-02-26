@@ -1,0 +1,14 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:effect="http://schemas.android.com/apk/res/com.example.jyb"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jyb.GraphicActivity" >
+
+    <com.example.partical.RainAnimation
+        android:id="@+id/act_main_rain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        effect:itemNum="180" />
+
+</RelativeLayout>
