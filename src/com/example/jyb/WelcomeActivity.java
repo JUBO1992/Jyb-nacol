@@ -8,11 +8,9 @@ import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.format.Time;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -79,20 +77,22 @@ public class WelcomeActivity extends Activity {
     	int d = calendar.get(Calendar.DAY_OF_MONTH);
     	String lm = DateUtils.getLunarMonth();
     	String ld = DateUtils.getLunarDay();
+    	String week = DateUtils.getWeek();
     	
     	findViewById(R.id.solarTextV).setVisibility(View.INVISIBLE);
     	findViewById(R.id.lunarTextV).setVisibility(View.INVISIBLE);
     	findViewById(R.id.skipWelcome_btn).setVisibility(View.VISIBLE);
-    	solarTextV.setText(m+"月"+d+"日");
+//    	solarTextV.setText(m+"月"+d+"日");
+    	solarTextV.setText(DateUtils.getDate());
     	lunarTextV.setText(lm+ld);
     	
     	interval = 5000;
-    	if(m==2 && d==14) {
+    	if(m==8 && d==17) {
+    		imgView.setBackgroundResource(R.drawable.welcome02);
+    	}else if(m==2 && d==14) {
     		imgView.setBackgroundResource(R.drawable.welcome01);
     	}else if(lm=="七月" && ld=="初七") {
     		imgView.setBackgroundResource(R.drawable.welcome01);
-    	}else if(m==8 && d==17) {
-    		imgView.setBackgroundResource(R.drawable.welcome02);
     	}else if(lm=="腊月" && ld=="三十") {
     		imgView.setBackgroundResource(R.drawable.welcome03);
     	}else if(lm=="正月" && ld=="初一") {
@@ -105,8 +105,24 @@ public class WelcomeActivity extends Activity {
     		findViewById(R.id.solarTextV).setVisibility(View.VISIBLE);
     		findViewById(R.id.lunarTextV).setVisibility(View.VISIBLE);
     		findViewById(R.id.skipWelcome_btn).setVisibility(View.INVISIBLE);
-    		interval = 817;
-    		imgView.setImageResource(R.drawable.welcome_1);
+    		interval = 817 * 2;
+    		if(week == "星期一") {
+    			imgView.setBackgroundResource(R.drawable.welcome14);
+    		}else if(week == "星期二") {
+    			imgView.setBackgroundResource(R.drawable.welcome15);
+    		}else if(week == "星期三") {
+    			imgView.setBackgroundResource(R.drawable.welcome16);
+    		}else if(week == "星期四") {
+    			imgView.setBackgroundResource(R.drawable.welcome17);
+    		}else if(week == "星期五") {
+    			imgView.setBackgroundResource(R.drawable.welcome18);
+    		}else if(week == "星期六") {
+    			imgView.setBackgroundResource(R.drawable.welcome19);
+    		}else if(week == "星期日") {
+    			imgView.setBackgroundResource(R.drawable.welcome20);
+    		}else {
+        		imgView.setImageResource(R.drawable.welcome_1);
+    		}
     		
     	}
     }

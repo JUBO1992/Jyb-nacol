@@ -302,22 +302,7 @@ public class FullscreenActivity extends Activity {
 			+ "  |XXX|       \\XXX/^^\\XXXXX/^^\\XXX/       |XXX|  \n" //
 			+ "    \\XX\\       \\X/    \\XXX/    \\X/       /XX/    \n" //
 			+ "       \"\\       \"      \\X/      \"      /\"        "; //
-	private String something = "有些话想了许久却始终没能说出口\n\n"
-			+"   这个App其实是五月份就写了的，但是自己总是找各种借口，始终也没有发给你让你知道。那次吃饭忽然听说你要走，我真的觉得有点懵，然后一下子就觉得完全没机会了，但是这个App就是给你写的，我觉得不管怎么样不让你知道我也不甘心，所以那天晚上纠结许久之后发给了你，其实当时好想说那上面的五个字“我好喜欢你”，但始终也没说出口\n\n" 
-			+"   第二天你要回家，我真的觉得好舍不得。之前一直没觉得，但是你回家那几天我就觉得缺了你好像缺了整个世界，感觉好空虚，后面一周公休假，本来是要回家的，但是我想等你回来，因为不知道你什么时候就要去广州了，怕你真要走了之后都没有机会见到你\n\n"
-			+"   你要走我真的好不舍，我觉得我再也碰不到像你这么好的女孩了\n\n"
-			+"   本来你回兰州的时候我想去机场接你的，但是你说不用。时间太晚，因为当时我也不知道你是什么态度，不知道你是觉得我去会让你不自在还是怎么的所以我也就没去，现在想想我真应该去的\n\n"
-			+"   你回兰州后，我也并不知道你的想法，约你出来就是想和你多见见面，像付世亮说的就是想留些回忆，这时候我确实没想要去广州的，一方面是家庭的原因，一方面是对广州确实没有任何计划\n\n"
-			+"   不是不想身边有你，只是不知能否跟上你的步伐\n\n"
-			+"   元旦之后的那个周六，下午去黄河边找你，你第一次挽着我的胳膊，我真的好开心，之后我就经常晚上陪你去黄河边溜达，觉得能和你在一起真的好好，然后我也在想我到底要不要去广州、能不能去广州、去了又该怎么办，虽然我还没有想明白，但是有一点很清楚，如果我去广州，你是唯一的理由\n\n"
-			+"   周四看完电影你的态度转变确实让我不知所措，本来周五想问你到底是什么原因的，但是晚上部门吃饭，之后家里又说我奶奶病了我就没有心思问了，这让我纠结了两天时间。昨天说晚上陪你出去，你说不用了，当时我真的很失落，然后我说了一句我极不愿意说的话“以后如果你不愿意我尽量不打扰你”，我真的怕你是真的不愿意...\n\n"
-			+"   没有跟你说我的家庭，是因为我真的不知该从何说起，听你说你的父母怎么样怎么样的时候，我也想说，但每次都是欲言又止，我一直没有明确问你的态度，让我们的关系感觉十分朦胧，原因之一就是我没有跟你说我的家庭情况\n\n"
-			+"   你说你不知道自己是什么位置--在我心目中，我希望你是我生命中的另一半，再没有任何一个人让我有如此强烈的感觉。一直没有表达出来，可能是因为我太满足于每天晚上能和你在黄河边溜达一圈\n\n"
-			+"   好多时候我总是后知后觉，昨天晚上你下来送苹果和烧饼之后立马就走了，你出门后我才想起我应该拉住你、抱住你，虽然不知道该说什么，但我确实好想抱住你，我就是不会表达，然后等我想表达的时候又没机会了\n\n"
-			+"   其实我也很想能和你一起去广州的，但是如果是要去哪里生活就不是说去就去的，有些东西你可以不想但是我不能不想，给我点时间让我想想清楚\n\n"
-			+"   对了，其实App前四个字符图案是有意义的：\n" 
-			+"在这个世界上 我好喜欢你 爱你 江雅冰\n\n"
-			+"2018年2月4号 周日 JUBO";
+
 
 	public void findTypeTextViews() {
 		mTypeTextView = (TypeTextView) findViewById(R.id.typeTxtId);
@@ -386,33 +371,37 @@ public class FullscreenActivity extends Activity {
 
 	private void startTextView(long times) {
 		mTypeTextView.setGravity(Gravity.CENTER);
-		if (times % 5 == 0) {
+		if (times % 4 == 0) {
 			mTypeTextView.setBackgroundColor(0x00ffffff);
 			mTypeTextView.setTextColor(0xffffffff);
 			mTypeTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
 			mTypeTextView.start(earth);
-		} else if (times % 5 == 1) {
+		} 
+		else if (times % 4 == 1) {
 			mTypeTextView.setBackgroundColor(0x00ffffff);
 			mTypeTextView.setTextColor(0xffd81e06);
 			mTypeTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
 			mTypeTextView.start(ilikeu);
-		} else if (times % 5 == 2) {
+		} 
+		else if (times % 4 == 2) {
 			mTypeTextView.setBackgroundColor(0x00ffffff);
 			mTypeTextView.setTextColor(0xffd81e06);
 			mTypeTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
 			mTypeTextView.start(heart);
-		} else if (times % 5 == 3) {
+		} 
+		else if (times % 4 == 3) {
 			mTypeTextView.setBackgroundResource(R.drawable.bg_asciiart);
 			mTypeTextView.setTextColor(0xff000000);
 			mTypeTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, (float) 4.6);
 			mTypeTextView.start(jyb);
-		} else if (times % 5 == 4) {
-			mTypeTextView.setGravity(Gravity.LEFT);
-			mTypeTextView.setBackgroundColor(0x00ffffff);
-			mTypeTextView.setTextColor(0xffffffff);
-			mTypeTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
-			mTypeTextView.start(something);
-		}
+		} 
+//		else if (times % 4 == 4) {
+//			mTypeTextView.setGravity(Gravity.LEFT);
+//			mTypeTextView.setBackgroundColor(0x00ffffff);
+//			mTypeTextView.setTextColor(0xffffffff);
+//			mTypeTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
+//			mTypeTextView.start(something);
+//		}
 	}
 
 }

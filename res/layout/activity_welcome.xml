@@ -16,8 +16,8 @@
         android:layout_height="50dp"
         android:gravity="center"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="100dp"
-        android:text="8月17日"
+        android:layout_marginTop="75dp"
+        android:text="1991-08-17"
         android:textColor="#ffffff"
         android:textSize="36dp" />
         
@@ -26,8 +26,8 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:gravity="center"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="125dp"
         android:text="七月初八"
         android:textColor="#ffffff"
         android:textSize="30dp" />

@@ -151,9 +151,23 @@ containing a value of this type.
         public static final int welcome04=0x7f020057;
         public static final int welcome05=0x7f020058;
         public static final int welcome06=0x7f020059;
-        public static final int welcome_1=0x7f02005a;
-        public static final int whale=0x7f02005b;
-        public static final int whale2=0x7f02005c;
+        public static final int welcome07=0x7f02005a;
+        public static final int welcome08=0x7f02005b;
+        public static final int welcome09=0x7f02005c;
+        public static final int welcome10=0x7f02005d;
+        public static final int welcome11=0x7f02005e;
+        public static final int welcome12=0x7f02005f;
+        public static final int welcome13=0x7f020060;
+        public static final int welcome14=0x7f020061;
+        public static final int welcome15=0x7f020062;
+        public static final int welcome16=0x7f020063;
+        public static final int welcome17=0x7f020064;
+        public static final int welcome18=0x7f020065;
+        public static final int welcome19=0x7f020066;
+        public static final int welcome20=0x7f020067;
+        public static final int welcome_1=0x7f020068;
+        public static final int whale=0x7f020069;
+        public static final int whale2=0x7f02006a;
     }
     public static final class id {
         public static final int SkyBackgroundView=0x7f090037;
