@@ -1,0 +1,80 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jyb.FullscreenActivity" >
+
+    <!-- 
+    <com.example.jyb.DrawView
+        android:id="@+id/flowerbgView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </com.example.jyb.DrawView>
+     -->
+
+
+	<FrameLayout
+	    android:id="@+id/container"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" />
+    
+	<com.example.jyb.TypeTextView
+		android:id="@+id/typeTxtId"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="102dp"
+		android:keepScreenOn="false"
+		android:textColor="#d81e06"
+		android:textSize="18dp" 
+		android:scrollbars="vertical"
+		android:fadeScrollbars="false"/>
+	
+    <Button
+        android:id="@+id/about_btn"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/btnbg_about" />
+
+    <Button
+        android:id="@+id/favorite_btn"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/btnbg_favorite" />
+
+    <Button
+        android:id="@+id/setting_btn"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/btnbg_setting" />
+
+    <Button
+        android:id="@+id/switchText_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="80dp"
+        android:background="@drawable/day" />
+
+    <Button
+        android:id="@+id/switchBG_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="right|bottom"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="80dp"
+        android:background="@drawable/night" />
+
+</FrameLayout>

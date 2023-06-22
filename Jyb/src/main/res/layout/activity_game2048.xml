@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/game2048"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="36dp"
+        android:text="Game 2048"
+        android:textColor="#ff6600"
+        android:textSize="32dp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp" >
+
+        <!-- android:layout_width设置为150dp卡片不显示 -->
+
+        <TextView
+            android:id="@+id/tvScore"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/rectbg_score"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="0"
+            android:textColor="#712704"
+            android:textSize="32dp" />
+
+        <Button
+            android:id="@+id/start_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/btnbg_restart" />
+    </FrameLayout>
+
+    <!-- android:layout_height设置为0dp或者不设置卡片不显示 -->
+
+    <com.example.game2048.GameView
+        android:id="@+id/gameView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="70dp"
+        android:layout_marginTop="48dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_gameview"
+        android:gravity="center" >
+    </com.example.game2048.GameView>
+
+</LinearLayout>

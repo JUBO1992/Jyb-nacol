@@ -1,0 +1,43 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jyb.WelcomeActivity" >
+
+    <ImageView
+	    android:id="@+id/welcomeImgV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="BackgroundView" />
+    
+    <TextView
+	    android:id="@+id/solarTextV"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="75dp"
+        android:text="1991-08-17"
+        android:textColor="#ffffff"
+        android:textSize="36dp" />
+        
+    <TextView
+	    android:id="@+id/lunarTextV"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="125dp"
+        android:text="七月初八"
+        android:textColor="#ffffff"
+        android:textSize="30dp" />
+
+    <Button
+	    android:id="@+id/skipWelcome_btn"
+	    android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/restart" />
+
+</FrameLayout>

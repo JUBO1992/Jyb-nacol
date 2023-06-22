@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jyb.AsciiArt2Activity" >
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.example.jyb.TypeTextView
+        android:id="@+id/typeTxtId"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:keepScreenOn="false"
+        android:textColor="#d81e06"
+        android:textSize="18dp" />
+    <Button
+        android:id="@+id/switchType_btn"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="75dp"
+        android:background="@drawable/btnbg_switchstr"/>
+    <Button
+        android:id="@+id/finishType_btn"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="75dp"
+        android:layout_marginRight="100dp"
+        android:background="@drawable/btnbg_pick"/>
+
+    <Button
+         android:id="@+id/restartType_btn"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="75dp"
+        android:layout_marginLeft="100dp"
+        android:background="@drawable/btnbg_restart"/>
+    
+</FrameLayout>

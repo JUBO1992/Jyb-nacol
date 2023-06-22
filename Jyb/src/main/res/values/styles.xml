@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- <style name="AppBaseTheme" parent="Theme.AppCompat.Light"></style> -->
+    <style name="AppBaseTheme" parent="android:Theme.Light"></style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="Transparent" parent="android:Theme.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@color/transparent_background</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- <item name="android:windowAnimationStyle">@+android:style/Animation.Translucent</item> -->
+    </style>
+    
+    <style name="Transparent2" parent="android:Theme.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@color/transparent2_background</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+</resources>
