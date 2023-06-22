@@ -17,25 +17,25 @@ import java.util.List;
 
 /**
  * Created by lz on 2016/7/24.
- * githubµØÖ·£ºhttps://github.com/lzuntalented/BackgroundView
- * ×Ô¶¨Òå±³¾°ÊÓÍ¼
+ * githubåœ°å€ï¼šhttps://github.com/lzuntalented/BackgroundView
+ * è‡ªå®šä¹‰èƒŒæ™¯è§†å›¾
  *
- * ²Î¿¼canvasÖĞ¾ÍÊÇ»æÍ¼£¬µØÖ·£ºhttps://github.com/hustcc/canvas-nest.js
+ * å‚è€ƒcanvasä¸­å°±æ˜¯ç»˜å›¾ï¼Œåœ°å€ï¼šhttps://github.com/hustcc/canvas-nest.js
  */
 public class BackgroundView extends View implements View.OnTouchListener,GestureDetector.OnGestureListener {
 
-    private List<OnTouchListener> mlist = new ArrayList<>();//´æ´¢¶à´Îµã»÷ÊÂ¼şµÄÏìÓ¦
+    private List<OnTouchListener> mlist = new ArrayList<>();//å­˜å‚¨å¤šæ¬¡ç‚¹å‡»äº‹ä»¶çš„å“åº”
 
-    private int lineCount = 99;//ÆÁÄ»³öÏÖµÄµãÊıÁ¿
+    private int lineCount = 99;//å±å¹•å‡ºç°çš„ç‚¹æ•°é‡
     private Context mContext;
-    private List<LineConfig> random_lines = new ArrayList<>();//ÆÁÄ»³öÏÖµÄµã¼¯ºÏ
+    private List<LineConfig> random_lines = new ArrayList<>();//å±å¹•å‡ºç°çš„ç‚¹é›†åˆ
 
     private GestureDetector mGestureDetector = null;
 
-    private LineConfig currentDown = new LineConfig();//´¥Ãşµã
+    private LineConfig currentDown = new LineConfig();//è§¦æ‘¸ç‚¹
 
-    private int color_point = Color.argb(100, 255, 255, 255);//µãµÄÑÕÉ«
-    private int color_line = Color.argb(100,255,0,0);//ÏßµÄÑÕÉ«
+    private int color_point = Color.argb(100, 255, 255, 255);//ç‚¹çš„é¢œè‰²
+    private int color_line = Color.argb(100,255,0,0);//çº¿çš„é¢œè‰²
 
     public BackgroundView(Context context) {
         super(context);
@@ -57,12 +57,12 @@ public class BackgroundView extends View implements View.OnTouchListener,Gesture
     }
 
     /**
-     * ³õÊ¼»¯
+     * åˆå§‹åŒ–
      */
     private void init(){
-        currentDown.max = 100000;//´¥ÃşµãÓëÆäËûµãÁ¬ÏßµÄ×î´ó¾àÀë
+        currentDown.max = 100000;//è§¦æ‘¸ç‚¹ä¸å…¶ä»–ç‚¹è¿çº¿çš„æœ€å¤§è·ç¦»
 
-        /*Ìí¼ÓÊÖÊÆ¼àÌı*/
+        /*æ·»åŠ æ‰‹åŠ¿ç›‘å¬*/
         mGestureDetector = new GestureDetector(mContext, this);
         this.setOnTouchListener(this);
         this.setLongClickable(true);
@@ -72,7 +72,7 @@ public class BackgroundView extends View implements View.OnTouchListener,Gesture
         int width = wm.getDefaultDisplay().getWidth();
         int height = wm.getDefaultDisplay().getHeight();
 
-        /*³õÊ¼»¯µã¼¯ºÏ*/
+        /*åˆå§‹åŒ–ç‚¹é›†åˆ*/
         for(int i=0; i < lineCount ; ++i){
             LineConfig l = new LineConfig();
             l.x = (float) (Math.random() * width);
@@ -84,7 +84,7 @@ public class BackgroundView extends View implements View.OnTouchListener,Gesture
             random_lines.add(l);
         }
 
-        /*Ìí¼Ó´¥Ãşµãµ½¼¯ºÏ*/
+        /*æ·»åŠ è§¦æ‘¸ç‚¹åˆ°é›†åˆ*/
         random_lines.add(currentDown);
     }
 
@@ -106,22 +106,22 @@ public class BackgroundView extends View implements View.OnTouchListener,Gesture
         for(int i = 0; i < random_lines.size() ; i ++ ){
             LineConfig r = random_lines.get(i);
             r.x += r.xa;
-            r.y += r.ya; //ÒÆ¶¯
+            r.y += r.ya; //ç§»åŠ¨
             r.xa *= r.x > canvas_width || r.x < 0 ? -1 : 1;
-            r.ya *= r.y > canvas_height || r.y < 0 ? -1 : 1; //Åöµ½±ß½ç£¬·´Ïò·´µ¯
+            r.ya *= r.y > canvas_height || r.y < 0 ? -1 : 1; //ç¢°åˆ°è¾¹ç•Œï¼Œåå‘åå¼¹
 
             paint_blue.setColor(color_point);
             canvas.drawCircle(r.x, r.y, 1, paint_blue);
 
             for(int j = i + 1; j < random_lines.size() ; j ++ ){
                 LineConfig e = random_lines.get(j);
-                x_dist = r.x - e.x; //xÖá¾àÀë
-                y_dist = r.y - e.y; //yÖá¾àÀë
-                dist = x_dist * x_dist + y_dist * y_dist; //×Ü¾àÀë
+                x_dist = r.x - e.x; //xè½´è·ç¦»
+                y_dist = r.y - e.y; //yè½´è·ç¦»
+                dist = x_dist * x_dist + y_dist * y_dist; //æ€»è·ç¦»
                 if(dist < e.max){
                     if(e.touch && dist >= e.max / 2){
                         r.x -= 0.03 * x_dist;
-                        r.y -= 0.03 * y_dist; //¿¿½üµÄÊ±ºò¼ÓËÙ
+                        r.y -= 0.03 * y_dist; //é è¿‘çš„æ—¶å€™åŠ é€Ÿ
                     }
 
                     paint_blue.setColor(color_line);
@@ -130,14 +130,14 @@ public class BackgroundView extends View implements View.OnTouchListener,Gesture
             }
         }
 
-        new DrawThread().start();//Æô¶¯¶¨Ê±Ïß³Ì»æÖÆ
+        new DrawThread().start();//å¯åŠ¨å®šæ—¶çº¿ç¨‹ç»˜åˆ¶
 
     }
 
     /**
-     * ÖØĞ´´¥Ãş¼àÌıÊÂ¼ş£¬
-     * ½«Ìí¼ÓµÄ´¥ÃşÊÂ¼şÌí¼Óµ½¼¯ºÏÖĞ
-     * ·ÀÖ¹Íâ²¿¶Ô´ËÊÓÍ¼ÔÙ´ÎÌí¼ÓÊÂ¼şµ¼ÖÂ´¥ÃşµãÎŞĞ§
+     * é‡å†™è§¦æ‘¸ç›‘å¬äº‹ä»¶ï¼Œ
+     * å°†æ·»åŠ çš„è§¦æ‘¸äº‹ä»¶æ·»åŠ åˆ°é›†åˆä¸­
+     * é˜²æ­¢å¤–éƒ¨å¯¹æ­¤è§†å›¾å†æ¬¡æ·»åŠ äº‹ä»¶å¯¼è‡´è§¦æ‘¸ç‚¹æ— æ•ˆ
      */
     @Override
     public void setOnTouchListener(OnTouchListener l) {
@@ -158,7 +158,7 @@ public class BackgroundView extends View implements View.OnTouchListener,Gesture
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        mGestureDetector.onTouchEvent(event);//·Ö·¢ÊÖÊÆÍ¨Öª
+        mGestureDetector.onTouchEvent(event);//åˆ†å‘æ‰‹åŠ¿é€šçŸ¥
         return false;
     }
 
@@ -181,8 +181,8 @@ public class BackgroundView extends View implements View.OnTouchListener,Gesture
 
     @Override
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        currentDown.x = e2.getX();//¼ÇÂ¼´¥Ãşµã×ø±ê
-        currentDown.y = e2.getY();//¼ÇÂ¼´¥Ãşµã×ø±ê
+        currentDown.x = e2.getX();//è®°å½•è§¦æ‘¸ç‚¹åæ ‡
+        currentDown.y = e2.getY();//è®°å½•è§¦æ‘¸ç‚¹åæ ‡
         return false;
     }
 
@@ -197,7 +197,7 @@ public class BackgroundView extends View implements View.OnTouchListener,Gesture
     }
 
     /**
-     * ¶¨Ê±Í¨Öª»æÖÆÏß³Ì
+     * å®šæ—¶é€šçŸ¥ç»˜åˆ¶çº¿ç¨‹
      * */
     private class DrawThread extends Thread{
 
@@ -205,7 +205,7 @@ public class BackgroundView extends View implements View.OnTouchListener,Gesture
         public void run() {
             super.run();
             try {
-                sleep(1000 / 45);//Ã¿Ãë»æÖÆ45´Î
+                sleep(1000 / 45);//æ¯ç§’ç»˜åˆ¶45æ¬¡
                 mHandler.sendEmptyMessage(1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -214,7 +214,7 @@ public class BackgroundView extends View implements View.OnTouchListener,Gesture
         }
     }
 
-    /**»æÍ¼Í¨Öªhandler*/
+    /**ç»˜å›¾é€šçŸ¥handler*/
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -224,22 +224,22 @@ public class BackgroundView extends View implements View.OnTouchListener,Gesture
     };
 
     /**
-     * ÖØ»æÊÓÍ¼Í¨Öª
+     * é‡ç»˜è§†å›¾é€šçŸ¥
      */
     private void draw_canvas() {
         this.invalidate();
     }
 
     /**
-     * ÆÁÄ»µã¶ÔÏó
+     * å±å¹•ç‚¹å¯¹è±¡
      * */
     private class LineConfig{
-        public float x;//x×ó±ê
-        public float y;//y×ó±ê
-        public float xa;//xÔöÁ¿
-        public float ya;//yÔöÁ¿
-        public float max;//Á½µã¼ä×î´ó¾àÀë£¬³¬¹ı´Ë¾àÀë²»ÔÙ»æÖÆÏß¶Î
-        public boolean touch = false;//±êÊ¾ÊÇ·ñÎª´¥Ãşµã
+        public float x;//xå·¦æ ‡
+        public float y;//yå·¦æ ‡
+        public float xa;//xå¢é‡
+        public float ya;//yå¢é‡
+        public float max;//ä¸¤ç‚¹é—´æœ€å¤§è·ç¦»ï¼Œè¶…è¿‡æ­¤è·ç¦»ä¸å†ç»˜åˆ¶çº¿æ®µ
+        public boolean touch = false;//æ ‡ç¤ºæ˜¯å¦ä¸ºè§¦æ‘¸ç‚¹
 
     }
 

@@ -5,17 +5,17 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtils {
-	//  ĞÇÆÚ
-    private static String[] week = {"ĞÇÆÚÈÕ", "ĞÇÆÚÒ»", "ĞÇÆÚ¶ş", "ĞÇÆÚÈı", "ĞÇÆÚËÄ", "ĞÇÆÚÎå", "ĞÇÆÚÁù"};
-    //  Å©ÀúÔÂ·İ
-    private static String[] lunarMonth = {"ÕıÔÂ", "¶şÔÂ", "ÈıÔÂ", "ËÄÔÂ", "ÎåÔÂ", "ÁùÔÂ", "ÆßÔÂ", "°ËÔÂ", "¾ÅÔÂ", "Ê®ÔÂ", "¶¬ÔÂ", "À°ÔÂ"};
-    //  Å©ÀúÈÕ
-    private static String[] lunarDay = {"³õÒ»", "³õ¶ş", "³õÈı", "³õËÄ", "³õÎå", "³õÁù", "³õÆß", "³õ°Ë", "³õ¾Å", "³õÊ®",
-            "Ê®Ò»", "Ê®¶ş", "Ê®Èı", "Ê®ËÄ", "Ê®Îå", "Ê®Áù", "Ê®Æß", "Ê®°Ë", "Ê®¾Å", "¶şÊ®",
-            "Ø¥Ò»", "Ø¥¶ş", "Ø¥Èı", "Ø¥ËÄ", "Ø¥Îå", "Ø¥Áù", "Ø¥Æß", "Ø¥°Ë", "Ø¥¾Å", "ÈıÊ®"};
+	//  æ˜ŸæœŸ
+    private static String[] week = {"æ˜ŸæœŸæ—¥", "æ˜ŸæœŸä¸€", "æ˜ŸæœŸäºŒ", "æ˜ŸæœŸä¸‰", "æ˜ŸæœŸå››", "æ˜ŸæœŸäº”", "æ˜ŸæœŸå…­"};
+    //  å†œå†æœˆä»½
+    private static String[] lunarMonth = {"æ­£æœˆ", "äºŒæœˆ", "ä¸‰æœˆ", "å››æœˆ", "äº”æœˆ", "å…­æœˆ", "ä¸ƒæœˆ", "å…«æœˆ", "ä¹æœˆ", "åæœˆ", "å†¬æœˆ", "è…Šæœˆ"};
+    //  å†œå†æ—¥
+    private static String[] lunarDay = {"åˆä¸€", "åˆäºŒ", "åˆä¸‰", "åˆå››", "åˆäº”", "åˆå…­", "åˆä¸ƒ", "åˆå…«", "åˆä¹", "åˆå",
+            "åä¸€", "åäºŒ", "åä¸‰", "åå››", "åäº”", "åå…­", "åä¸ƒ", "åå…«", "åä¹", "äºŒå",
+            "å»¿ä¸€", "å»¿äºŒ", "å»¿ä¸‰", "å»¿å››", "å»¿äº”", "å»¿å…­", "å»¿ä¸ƒ", "å»¿å…«", "å»¿ä¹", "ä¸‰å"};
 
     /**
-     * »ñµÃµ±ÌìtimeµãÊ±¼ä´Á
+     * è·å¾—å½“å¤©timeç‚¹æ—¶é—´æˆ³
      */
     public static long getSignTime(int time) {
         Calendar cal = Calendar.getInstance();
@@ -27,7 +27,7 @@ public class DateUtils {
     }
 
     /**
-     * Ê±¼ä¶Î¸ñÊ½»¯ hh:mm:ss ÓÃÀ´×öµ¹¼ÆÊ±
+     * æ—¶é—´æ®µæ ¼å¼åŒ– hh:mm:ss ç”¨æ¥åšå€’è®¡æ—¶
      */
     public static String timeFormat(long time) {
         int hours = (int) time / 3600;
@@ -60,7 +60,7 @@ public class DateUtils {
     }
 
     /**
-     * »ñÈ¡ÄêÔÂÈÕ ¸ñÊ½yyyy-MM-dd
+     * è·å–å¹´æœˆæ—¥ æ ¼å¼yyyy-MM-dd
      */
     public static String getDate() {
         Date date = new Date();
@@ -70,7 +70,7 @@ public class DateUtils {
     }
 
     /**
-     * »ñÈ¡Äê¡¢ÔÂ ¸ñÊ½ yyyy-MM
+     * è·å–å¹´ã€æœˆ æ ¼å¼ yyyy-MM
      *
      * @return
      */
@@ -82,7 +82,7 @@ public class DateUtils {
     }
 
     /**
-     * »ñÈ¡µ±ÔÂÈÕÆÚ
+     * è·å–å½“æœˆæ—¥æœŸ
      * @return Day of month
      */
     public static String getDay() {
@@ -92,7 +92,7 @@ public class DateUtils {
     }
 
     /**
-     * »ñÈ¡ĞÇÆÚ¼¸
+     * è·å–æ˜ŸæœŸå‡ 
      */
     public static String getWeek() {
         Calendar calendar = Calendar.getInstance();
@@ -101,7 +101,7 @@ public class DateUtils {
     }
 
     /**
-     * »ñÈ¡Å©ÀúÔÂ·İ
+     * è·å–å†œå†æœˆä»½
      * @return
      */
     public static String getLunarMonth() {
@@ -114,7 +114,7 @@ public class DateUtils {
     }
 
     /**
-     * »ñÈ¡Å©ÀúÈÕ
+     * è·å–å†œå†æ—¥
      * @return
      */
     public static String getLunarDay() {

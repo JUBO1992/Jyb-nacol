@@ -22,43 +22,43 @@ import android.widget.Toast;
 
 public class JigsawView extends RelativeLayout implements View.OnClickListener {
 	/**
-	 * ÉèÖÃItemµÄÊıÁ¿n*n£»Ä¬ÈÏÎª3
+	 * è®¾ç½®Itemçš„æ•°é‡n*nï¼›é»˜è®¤ä¸º3
 	 */
 	private int mColumn = 3;
 	/**
-	 * ²¼¾ÖµÄ¿í¶È
+	 * å¸ƒå±€çš„å®½åº¦
 	 */
 	private int mWidth;
 	/**
-	 * ²¼¾ÖµÄpadding
+	 * å¸ƒå±€çš„padding
 	 */
 	private int mPadding;
 	/**
-	 * ´æ·ÅËùÓĞµÄItem
+	 * å­˜æ”¾æ‰€æœ‰çš„Item
 	 */
 	private ImageView[] mGamePintuItems;
 	/**
-	 * ItemµÄ¿í¶È
+	 * Itemçš„å®½åº¦
 	 */
 	private int mItemWidth;
 
 	/**
-	 * ItemºáÏòÓë×İÏòµÄ±ß¾à
+	 * Itemæ¨ªå‘ä¸çºµå‘çš„è¾¹è·
 	 */
 	private int mMargin = 1;
 
 	/**
-	 * Æ´Í¼µÄÍ¼Æ¬
+	 * æ‹¼å›¾çš„å›¾ç‰‡
 	 */
 	private Bitmap mBitmap;
 	/**
-	 * ´æ·ÅÇĞÍêÒÔºóµÄÍ¼Æ¬bean
+	 * å­˜æ”¾åˆ‡å®Œä»¥åçš„å›¾ç‰‡bean
 	 */
 	private List<ImagePiece> mItemBitmaps;
 
 	private boolean once;
 
-	private int steps = 0;// ²½Êı
+	private int steps = 0;// æ­¥æ•°
 
 	public JigsawView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -76,10 +76,10 @@ public class JigsawView extends RelativeLayout implements View.OnClickListener {
 	}
 
 	public void initGameView() {
-		// °ÑÉèÖÃµÄmarginÖµ×ª»»Îªdp
+		// æŠŠè®¾ç½®çš„marginå€¼è½¬æ¢ä¸ºdp
 		mMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, mMargin,
 				getResources().getDisplayMetrics());
-		// ÉèÖÃLayoutµÄÄÚ±ß¾à£¬ËÄ±ßÒ»ÖÂ£¬ÉèÖÃÎªËÄÄÚ±ß¾àÖĞµÄ×îĞ¡Öµ
+		// è®¾ç½®Layoutçš„å†…è¾¹è·ï¼Œå››è¾¹ä¸€è‡´ï¼Œè®¾ç½®ä¸ºå››å†…è¾¹è·ä¸­çš„æœ€å°å€¼
 		int paddings[] = { getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() };
 		mPadding = min(paddings);
 	}
@@ -98,7 +98,7 @@ public class JigsawView extends RelativeLayout implements View.OnClickListener {
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-		// »ñµÃÓÎÏ·²¼¾ÖµÄ±ß³¤
+		// è·å¾—æ¸¸æˆå¸ƒå±€çš„è¾¹é•¿
 		mWidth = Math.min(getMeasuredHeight(), getMeasuredWidth());
 
 		if (!once) {
@@ -121,7 +121,7 @@ public class JigsawView extends RelativeLayout implements View.OnClickListener {
 	}
 
 	/**
-	 * ³õÊ¼»¯bitmap
+	 * åˆå§‹åŒ–bitmap
 	 */
 	private void initBitmap() {
 		mFirst = null;
@@ -134,26 +134,26 @@ public class JigsawView extends RelativeLayout implements View.OnClickListener {
 			mItemBitmaps.clear();
 		mItemBitmaps = ImageSplitter.split(mBitmap, mColumn);
 
-		// ¶ÔÍ¼Æ¬½øĞĞÅÅĞò
+		// å¯¹å›¾ç‰‡è¿›è¡Œæ’åº
 		Collections.sort(mItemBitmaps, new Comparator<ImagePiece>() {
 			@Override
 			public int compare(ImagePiece lhs, ImagePiece rhs) {
-				// ÎÒÃÇÊ¹ÓÃrandomËæ»ú±È½Ï´óĞ¡
+				// æˆ‘ä»¬ä½¿ç”¨randoméšæœºæ¯”è¾ƒå¤§å°
 				return Math.random() > 0.5 ? 1 : -1;
 			}
 		});
 	}
 
 	/**
-	 * ³õÊ¼»¯Ã¿Ò»¸öitem
+	 * åˆå§‹åŒ–æ¯ä¸€ä¸ªitem
 	 */
 	private void initItem() {
-		// »ñµÃItemµÄ¿í¶È
+		// è·å¾—Itemçš„å®½åº¦
 		int childWidth = (mWidth - mPadding * 2 - mMargin * (mColumn - 1)) / mColumn;
 		mItemWidth = childWidth;
 
 		mGamePintuItems = new ImageView[mColumn * mColumn];
-		// ·ÅÖÃItem
+		// æ”¾ç½®Item
 		for (int i = 0; i < mGamePintuItems.length; i++) {
 			ImageView item = new ImageView(getContext());
 
@@ -165,16 +165,16 @@ public class JigsawView extends RelativeLayout implements View.OnClickListener {
 			item.setTag(i + "_" + mItemBitmaps.get(i).index);
 
 			RelativeLayout.LayoutParams lp = new LayoutParams(mItemWidth, mItemWidth);
-			// ÉèÖÃºáÏò±ß¾à,²»ÊÇ×îºóÒ»ÁĞ
+			// è®¾ç½®æ¨ªå‘è¾¹è·,ä¸æ˜¯æœ€åä¸€åˆ—
 			if ((i + 1) % mColumn != 0) {
 				lp.rightMargin = mMargin;
 			}
-			// Èç¹û²»ÊÇµÚÒ»ÁĞ
+			// å¦‚æœä¸æ˜¯ç¬¬ä¸€åˆ—
 			if (i % mColumn != 0) {
 				lp.addRule(RelativeLayout.RIGHT_OF, //
 						mGamePintuItems[i - 1].getId());
 			}
-			// Èç¹û²»ÊÇµÚÒ»ĞĞ£¬//ÉèÖÃ×İÏò±ß¾à£¬·Ç×îºóÒ»ĞĞ
+			// å¦‚æœä¸æ˜¯ç¬¬ä¸€è¡Œï¼Œ//è®¾ç½®çºµå‘è¾¹è·ï¼Œéæœ€åä¸€è¡Œ
 			if ((i + 1) > mColumn) {
 				lp.topMargin = mMargin;
 				lp.addRule(RelativeLayout.BELOW, //
@@ -185,34 +185,34 @@ public class JigsawView extends RelativeLayout implements View.OnClickListener {
 	}
 
 	/**
-	 * ¼ÇÂ¼µÚÒ»´Îµã»÷µÄImageView
+	 * è®°å½•ç¬¬ä¸€æ¬¡ç‚¹å‡»çš„ImageView
 	 */
 	private ImageView mFirst;
 	/**
-	 * ¼ÇÂ¼µÚ¶ş´Îµã»÷µÄImageView
+	 * è®°å½•ç¬¬äºŒæ¬¡ç‚¹å‡»çš„ImageView
 	 */
 	private ImageView mSecond;
 
 	/**
-	 * µã»÷ÊÂ¼ş
+	 * ç‚¹å‡»äº‹ä»¶
 	 * 
-	 * @param view
+	 * @param v
 	 */
 	@Override
 	public void onClick(View v) {
 		if (isAniming)
 			return;
-		// Èç¹ûÁ½´Îµã»÷ÊÇÍ¬Ò»¸ö
+		// å¦‚æœä¸¤æ¬¡ç‚¹å‡»æ˜¯åŒä¸€ä¸ª
 		if (mFirst == v) {
 			mFirst.setColorFilter(null);
 			mFirst = null;
 			return;
 		}
-		// µã»÷µÚÒ»¸öItem
+		// ç‚¹å‡»ç¬¬ä¸€ä¸ªItem
 		if (mFirst == null) {
 			mFirst = (ImageView) v;
 			mFirst.setColorFilter(Color.parseColor("#55FF0000"));
-		} else// µã»÷µÚ¶ş¸öItem
+		} else// ç‚¹å‡»ç¬¬äºŒä¸ªItem
 		{
 			mSecond = (ImageView) v;
 			exchangeView();
@@ -223,7 +223,7 @@ public class JigsawView extends RelativeLayout implements View.OnClickListener {
 	}
 
 	/**
-	 * ÓÃÀ´ÅĞ¶ÏÓÎÏ·ÊÇ·ñ³É¹¦
+	 * ç”¨æ¥åˆ¤æ–­æ¸¸æˆæ˜¯å¦æˆåŠŸ
 	 */
 	private void checkSuccess() {
 		boolean isSuccess = true;
@@ -243,7 +243,7 @@ public class JigsawView extends RelativeLayout implements View.OnClickListener {
 	}
 
 	/**
-	 * »ñµÃÍ¼Æ¬µÄÕæÕıË÷Òı
+	 * è·å¾—å›¾ç‰‡çš„çœŸæ­£ç´¢å¼•
 	 * 
 	 * @param tag
 	 * @return
@@ -272,21 +272,21 @@ public class JigsawView extends RelativeLayout implements View.OnClickListener {
 	}
 
 	/**
-	 * ¶¯»­ÔËĞĞµÄ±êÖ¾Î»
+	 * åŠ¨ç”»è¿è¡Œçš„æ ‡å¿—ä½
 	 */
 	private boolean isAniming;
 	/**
-	 * ¶¯»­²ã
+	 * åŠ¨ç”»å±‚
 	 */
 	private RelativeLayout mAnimLayout;
 
 	/**
-	 * ½»»»Á½¸öItemÍ¼Æ¬
+	 * äº¤æ¢ä¸¤ä¸ªItemå›¾ç‰‡
 	 */
 	private void exchangeView() {
 		mFirst.setColorFilter(null);
 		setUpAnimLayout();
-		// Ìí¼ÓFirstView
+		// æ·»åŠ FirstView
 		ImageView first = new ImageView(getContext());
 		first.setImageBitmap(mItemBitmaps.get(getImageIndexByTag((String) mFirst.getTag())).bitmap);
 		LayoutParams lp = new LayoutParams(mItemWidth, mItemWidth);
@@ -294,7 +294,7 @@ public class JigsawView extends RelativeLayout implements View.OnClickListener {
 		lp.topMargin = mFirst.getTop() - mPadding;
 		first.setLayoutParams(lp);
 		mAnimLayout.addView(first);
-		// Ìí¼ÓSecondView
+		// æ·»åŠ SecondView
 		ImageView second = new ImageView(getContext());
 		second.setImageBitmap(mItemBitmaps.get(getImageIndexByTag((String) mSecond.getTag())).bitmap);
 		LayoutParams lp2 = new LayoutParams(mItemWidth, mItemWidth);
@@ -303,7 +303,7 @@ public class JigsawView extends RelativeLayout implements View.OnClickListener {
 		second.setLayoutParams(lp2);
 		mAnimLayout.addView(second);
 
-		// ÉèÖÃ¶¯»­
+		// è®¾ç½®åŠ¨ç”»
 		TranslateAnimation anim = new TranslateAnimation(0, mSecond.getLeft() - mFirst.getLeft(), 0,
 				mSecond.getTop() - mFirst.getTop());
 		anim.setDuration(300);
@@ -315,7 +315,7 @@ public class JigsawView extends RelativeLayout implements View.OnClickListener {
 		animSecond.setDuration(300);
 		animSecond.setFillAfter(true);
 		second.startAnimation(animSecond);
-		// Ìí¼Ó¶¯»­¼àÌı
+		// æ·»åŠ åŠ¨ç”»ç›‘å¬
 		anim.setAnimationListener(new AnimationListener() {
 
 			@Override
@@ -355,7 +355,7 @@ public class JigsawView extends RelativeLayout implements View.OnClickListener {
 	}
 
 	/**
-	 * ´´½¨¶¯»­²ã
+	 * åˆ›å»ºåŠ¨ç”»å±‚
 	 */
 	private void setUpAnimLayout() {
 		if (mAnimLayout == null) {

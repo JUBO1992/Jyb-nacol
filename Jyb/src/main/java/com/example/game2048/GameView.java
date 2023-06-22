@@ -211,8 +211,8 @@ public class GameView extends GridLayout {
 			}
 		}
 		if (complete) {
-			new AlertDialog.Builder(getContext()).setTitle("提示").setMessage("游戏结束")
-					.setPositiveButton("重来", new DialogInterface.OnClickListener() {
+			new AlertDialog.Builder(getContext()).setTitle("鎻愮ず").setMessage("娓告垙缁撴潫")
+					.setPositiveButton("閲嶆潵", new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface arg0, int arg1) {
 							startGame();

@@ -88,7 +88,7 @@ public class AsciiArtActivity extends Activity {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
 			long secondTime = System.currentTimeMillis();
 			if (secondTime - firstTime > 2000) {
-				Toast.makeText(this, "ÔÙ°´Ò»´ÎÍË³öÒ³Ãæ", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "å†æŒ‰ä¸€æ¬¡é€€å‡ºé¡µé¢", Toast.LENGTH_SHORT).show();
 				firstTime = secondTime;
 				return true;
 			} else {
@@ -98,7 +98,7 @@ public class AsciiArtActivity extends Activity {
 		return super.onKeyDown(keyCode, event);
 	}
 
-	// Æô¶¯Í¼Æ¬Ñ¡ÔñActivity
+	// å¯åŠ¨å›¾ç‰‡é€‰æ‹©Activity
 	public void getPhonePhoto() {
 		Intent intent = new Intent();
 		intent.setType("image/*");
@@ -154,7 +154,7 @@ public class AsciiArtActivity extends Activity {
 
 	private void createAsciiPic(Bitmap bitmap) {
 		mAsciiStr = "\n";
-		String base = "@#&$%*o!;.";// ×Ö·û´®ÓÉ¸´ÔÓµ½¼òµ¥
+		String base = "@#&$%*o!;.";// å­—ç¬¦ä¸²ç”±å¤æ‚åˆ°ç®€å•
 		try {
 			for (int y = 0; y < bitmap.getHeight(); y += 2) {
 				mAsciiStr += "  ";

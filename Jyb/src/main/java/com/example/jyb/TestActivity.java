@@ -48,7 +48,7 @@ public class TestActivity extends Activity {
 		return super.onKeyDown(keyCode, event);
 	}
 
-	// Æô¶¯Í¼Æ¬Ñ¡ÔñActivity
+	// å¯åŠ¨å›¾ç‰‡é€‰æ‹©Activity
 	public void getPhonePhoto(View view) {
 		Intent intent = new Intent();
 		intent.setType("image/*");

@@ -16,9 +16,9 @@ public class TypeTextView extends TextView {
 	private Timer mTypeTimer = null;
 	private OnTypeViewListener mOnTypeViewListener = null;
 	private static final int TYPE_TIME_DELAY = 50;
-	private int mTypeTimeDelay = TYPE_TIME_DELAY; // ´ò×Ö¼ä¸ô
+	private int mTypeTimeDelay = TYPE_TIME_DELAY; // æ‰“å­—é—´éš”
 	private static final String DEFAULT_INTERVAL_CHAR = "_";
-	private String mIntervalChar = DEFAULT_INTERVAL_CHAR; // Ä¬ÈÏ´ò×Ö×Ö·û
+	private String mIntervalChar = DEFAULT_INTERVAL_CHAR; // é»˜è®¤æ‰“å­—å­—ç¬¦
 
 	public TypeTextView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);

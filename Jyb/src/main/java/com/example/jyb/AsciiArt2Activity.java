@@ -68,9 +68,9 @@ public class AsciiArt2Activity extends Activity {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Dialog);
 		builder.setIcon(R.drawable.ic_launcher_ice);
 		builder.setTitle("Choose a item!");
-		// Ö¸¶¨ÏÂÀ­ÁĞ±íµÄÏÔÊ¾Êı¾İ
-		final String[] asciis = { "Êó", "Å£", "Ã¨", "ÍÃ", "Áú", "Éß", "Âí", "Ñò", "ºï", "¼¦", "¹·", "Öí" };
-		// ÉèÖÃÒ»¸öÏÂÀ­µÄÁĞ±íÑ¡ÔñÏî
+		// æŒ‡å®šä¸‹æ‹‰åˆ—è¡¨çš„æ˜¾ç¤ºæ•°æ®
+		final String[] asciis = { "é¼ ", "ç‰›", "çŒ«", "å…”", "é¾™", "è›‡", "é©¬", "ç¾Š", "çŒ´", "é¸¡", "ç‹—", "çŒª" };
+		// è®¾ç½®ä¸€ä¸ªä¸‹æ‹‰çš„åˆ—è¡¨é€‰æ‹©é¡¹
 		builder.setItems(asciis, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -81,7 +81,7 @@ public class AsciiArt2Activity extends Activity {
 		builder.show();
 	}
 
-	private long clickTimes1 = 0;// ×Ö·ûÇĞ»»°´Å¥µã»÷´ÎÊı
+	private long clickTimes1 = 0;// å­—ç¬¦åˆ‡æ¢æŒ‰é’®ç‚¹å‡»æ¬¡æ•°
 	private TypeTextView mTypeTextView = null;
 	private String mouse = "" //
 			+ " .--,       .--,         \n" //
@@ -97,7 +97,7 @@ public class AsciiArt2Activity extends Activity {
 			+ "   ___)( )(___           \n" //
 			+ "  (((__) (__)))          "; //
 	private String moocow = "" //
-			+ "  /~~~~~\\        /~~~~~\\ \n" // Ç°ºó¸÷É¾³ı10¸ö¿Õ¸ñ
+			+ "  /~~~~~\\        /~~~~~\\ \n" // å‰åå„åˆ é™¤10ä¸ªç©ºæ ¼
 			+ " |    (~'        ~~~)   |\n" //
 			+ "  \\    \\__________/    / \n" //
 			+ "  /~::::::::         ~\\  \n" //
@@ -257,10 +257,10 @@ public class AsciiArt2Activity extends Activity {
 			+ "   |_\\\\_    \\\\_\\_    \n" //
 			+ "   \"' \"\"'    \"\"'\"'   \n\n"; //
 	private String pig = "" //
-			+ "¨q ¦ä¦ä¦ä ¨r\n" //
+			+ "â•­ ï¸¿ï¸¿ï¸¿ â•®\n" //
 			+ "{/ o  o /}\n" //
 			+ "( (oo) )\n" //
-			+ "¦á¦á¦á"; //
+			+ "ï¸¶ï¸¶ï¸¶"; //
 
 	public void findTypeTextViews() {
 		mTypeTextView = (TypeTextView) findViewById(R.id.typeTxtId);
@@ -289,15 +289,15 @@ public class AsciiArt2Activity extends Activity {
 
 		@Override
 		public void onClick(View v) {
-			// ½«Êı×éÄÚµÄËùÓĞÔªËØ×óÒÆÒ»¸öÎ»ÖÃ
+			// å°†æ•°ç»„å†…çš„æ‰€æœ‰å…ƒç´ å·¦ç§»ä¸€ä¸ªä½ç½®
 			System.arraycopy(doubleHints, 1, doubleHints, 0, doubleHints.length - 1);
 			System.arraycopy(threeHints, 1, threeHints, 0, threeHints.length - 1);
-			// »ñµÃµ±Ç°ÏµÍ³ÒÑ¾­Æô¶¯µÄÊ±¼ä
+			// è·å¾—å½“å‰ç³»ç»Ÿå·²ç»å¯åŠ¨çš„æ—¶é—´
 			doubleHints[doubleHints.length - 1] = SystemClock.uptimeMillis();
 			threeHints[threeHints.length - 1] = SystemClock.uptimeMillis();
-			if (SystemClock.uptimeMillis() - threeHints[0] <= 700) {// ÈıÁ¬»÷
+			if (SystemClock.uptimeMillis() - threeHints[0] <= 700) {// ä¸‰è¿å‡»
 
-			} else if (SystemClock.uptimeMillis() - doubleHints[0] <= 500) {// Ë«»÷
+			} else if (SystemClock.uptimeMillis() - doubleHints[0] <= 500) {// åŒå‡»
 				startTextView(clickTimes1++);
 				// mTypeTextView.finish();
 			}
@@ -310,14 +310,14 @@ public class AsciiArt2Activity extends Activity {
 		@Override
 		public boolean onTouch(View view, MotionEvent event) {
 			// TODO Auto-generated method stub
-			// ¼Ì³ĞÁËActivityµÄonTouchEvent·½·¨£¬Ö±½Ó¼àÌıµã»÷ÊÂ¼ş
+			// ç»§æ‰¿äº†Activityçš„onTouchEventæ–¹æ³•ï¼Œç›´æ¥ç›‘å¬ç‚¹å‡»äº‹ä»¶
 			if (event.getAction() == MotionEvent.ACTION_DOWN) {
-				// µ±ÊÖÖ¸°´ÏÂµÄÊ±ºò
+				// å½“æ‰‹æŒ‡æŒ‰ä¸‹çš„æ—¶å€™
 				startX = event.getX();
 				startY = event.getY();
 			}
 			if (event.getAction() == MotionEvent.ACTION_UP) {
-				// µ±ÊÖÖ¸Àë¿ªµÄÊ±ºò
+				// å½“æ‰‹æŒ‡ç¦»å¼€çš„æ—¶å€™
 				offsetX = Math.abs(event.getX() - startX);
 				offsetY = Math.abs(event.getY() - startY);
 				if (offsetX >= 150 && offsetY >= 150) {

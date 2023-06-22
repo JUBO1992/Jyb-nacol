@@ -62,14 +62,14 @@ public class Game2048Activity extends Activity {
 	private float startX,startY,offsetX,offsetY;
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		//¼Ì³ĞÁËActivityµÄonTouchEvent·½·¨£¬Ö±½Ó¼àÌıµã»÷ÊÂ¼ş  
+		//ç»§æ‰¿äº†Activityçš„onTouchEventæ–¹æ³•ï¼Œç›´æ¥ç›‘å¬ç‚¹å‡»äº‹ä»¶  
 		if(event.getAction() == MotionEvent.ACTION_DOWN) {  
-			//µ±ÊÖÖ¸°´ÏÂµÄÊ±ºò  
+			//å½“æ‰‹æŒ‡æŒ‰ä¸‹çš„æ—¶å€™  
 			startX = event.getX();
 			startY = event.getY(); 
 		}  
 		if(event.getAction() == MotionEvent.ACTION_UP) {  
-			//µ±ÊÖÖ¸Àë¿ªµÄÊ±ºò  
+			//å½“æ‰‹æŒ‡ç¦»å¼€çš„æ—¶å€™  
 			offsetX = event.getX()-startX;
 			offsetY = event.getY()-startY;
 			if (Math.abs(offsetX)>Math.abs(offsetY)) {
@@ -99,7 +99,7 @@ public class Game2048Activity extends Activity {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
 			long secondTime = System.currentTimeMillis();
 			if (secondTime - firstTime > 2000) {
-				Toast.makeText(this, "ÔÙ°´Ò»´ÎÍË³öÒ³Ãæ", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "å†æŒ‰ä¸€æ¬¡é€€å‡ºé¡µé¢", Toast.LENGTH_SHORT).show();
 				firstTime = secondTime;
 				return true;
 			} else {

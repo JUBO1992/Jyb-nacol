@@ -14,11 +14,11 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 /**
- * Description: ͼƬ��Ƭ��
+ * Description: 图片切片类
  */
 public class ImageSplitter {
 	/**
-	 * ��ͼƬ�г� , piece *piece
+	 * 将图片切成 , piece *piece
 	 * 
 	 * @param bitmap
 	 * @param piece

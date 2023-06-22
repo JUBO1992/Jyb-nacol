@@ -16,8 +16,8 @@ import android.widget.Toast;
 
 public class CalcActivity extends Activity {
 	private long firstTime = 0;
-	EditText rsText = null; // ¹«Ê½ÏÔÊ¾Æ÷
-	EditText resultText = null; // ½á¹ûÏÔÊ¾Æ÷
+	EditText rsText = null; // å…¬å¼æ˜¾ç¤ºå™¨
+	EditText resultText = null; // ç»“æœæ˜¾ç¤ºå™¨
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class CalcActivity extends Activity {
 		public void onClick(View v) {
 			Button btn = (Button) v;
 			String exp = rsText.getText().toString();
-			int lastEnter = exp.lastIndexOf("\n");// ¹«Ê½ÖĞ×îºóÒ»¸ö»Ø³µ·ûÎ»ÖÃ
+			int lastEnter = exp.lastIndexOf("\n");// å…¬å¼ä¸­æœ€åä¸€ä¸ªå›è½¦ç¬¦ä½ç½®
 			switch (btn.getId()) {
 			case R.id.btn_0:
 				if (lastEnter > 0 && exp.length() >= lastEnter + 2
@@ -141,13 +141,13 @@ public class CalcActivity extends Activity {
 				setResult(exp);
 				break;
 			}
-			// °´¼üÍê³ÉºóÊ¼ÖÕ±£³Ö¹â±êÔÚ×îºóÒ»Î»
+			// æŒ‰é”®å®Œæˆåå§‹ç»ˆä¿æŒå…‰æ ‡åœ¨æœ€åä¸€ä½
 			rsText.setSelection(rsText.getText().length());
 		}
 	};
 
 	private int getNumlen(String exp) {
-		int lastEnter = exp.lastIndexOf("\n");// ¹«Ê½ÖĞ×îºóÒ»¸ö»Ø³µ·ûÎ»ÖÃ
+		int lastEnter = exp.lastIndexOf("\n");// å…¬å¼ä¸­æœ€åä¸€ä¸ªå›è½¦ç¬¦ä½ç½®
 		if (exp.length() <= 0) {
 			return 0;
 		} else if (lastEnter < 0) {
@@ -184,8 +184,8 @@ public class CalcActivity extends Activity {
 
 	/***
 	 * @param exp
-	 *            ËãÊı±í´ïÊ½
-	 * @return ¸ù¾İ±í´ïÊ½·µ»Ø½á¹û
+	 *            ç®—æ•°è¡¨è¾¾å¼
+	 * @return æ ¹æ®è¡¨è¾¾å¼è¿”å›ç»“æœ
 	 */
 	private String getRs(String exp) {
 		Interpreter bsh = new Interpreter();
@@ -203,8 +203,8 @@ public class CalcActivity extends Activity {
 
 	/**
 	 * @param exp
-	 *            ËãÊı±í´ïÊ½
-	 * @return ÒòÎª¼ÆËã¹ı³ÌÖĞ,È«³ÌĞèÒªÓĞĞ¡Êı²ÎÓë.
+	 *            ç®—æ•°è¡¨è¾¾å¼
+	 * @return å› ä¸ºè®¡ç®—è¿‡ç¨‹ä¸­,å…¨ç¨‹éœ€è¦æœ‰å°æ•°å‚ä¸.
 	 */
 	private String filterExp(String exp) {
 		String num[] = exp.split("");
@@ -241,7 +241,7 @@ public class CalcActivity extends Activity {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
 			long secondTime = System.currentTimeMillis();
 			if (secondTime - firstTime > 2000) {
-				Toast.makeText(this, "ÔÙ°´Ò»´ÎÍË³öÒ³Ãæ", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "å†æŒ‰ä¸€æ¬¡é€€å‡ºé¡µé¢", Toast.LENGTH_SHORT).show();
 				firstTime = secondTime;
 				return true;
 			} else {

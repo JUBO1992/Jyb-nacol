@@ -23,10 +23,14 @@ import com.example.partical.RainFragment;
 import com.example.partical.SnowFragment;
 import com.example.partical.StarFragment;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
 public class FullscreenActivity extends Activity {
 
 	public static FullscreenActivity instance = null;
-	public boolean musicFlag = false;// Ä¬ÈÏ²»¿ªÆô±³¾°ÒôÀÖ
+	public boolean musicFlag = false;// é»˜è®¤ä¸å¼€å¯èƒŒæ™¯éŸ³ä¹
 	private long firstTime = 0;
 
 	FrameLayout container;
@@ -54,6 +58,26 @@ public class FullscreenActivity extends Activity {
 		findTypeTextViews();
 
 		getFragmentManager().beginTransaction().replace(R.id.container, new StarFragment()).commit();
+
+		AlarmTimer.setRepeatingAlarmTimer1(getApplicationContext(),
+				System.currentTimeMillis(),
+				300000L,
+				"com.example.jyb.TIMER_ACTION_REPEATING1",
+				0);
+		Calendar calendar = Calendar.getInstance();
+		int m = calendar.get(Calendar.MONTH) + 1;
+		int d = calendar.get(Calendar.DAY_OF_MONTH);
+		String lm = DateUtils.getLunarMonth();
+		String ld = DateUtils.getLunarDay();
+		if((m==8 && d==17) || ((lm.equals("ä¸ƒæœˆ")) && (ld.equals("åˆå…«")))) {
+			musicFlag = true;
+			if (d == 17) {
+				startTextView(-1);
+			} else {
+				startTextView(-2);
+			}
+		}
+		startTextView(-3);
 	}
 
 	public void startMusic() {
@@ -103,8 +127,8 @@ public class FullscreenActivity extends Activity {
 		super.finish();
 	}
 
-	private long clickTimes1 = 0;// ×Ö·ûÇĞ»»°´Å¥µã»÷´ÎÊı
-	private long clickTimes2 = 1;// ±³¾°ÇĞ»»°´Å¥µã»÷´ÎÊı
+	private long clickTimes1 = 0;// å­—ç¬¦åˆ‡æ¢æŒ‰é’®ç‚¹å‡»æ¬¡æ•°
+	private long clickTimes2 = 1;// èƒŒæ™¯åˆ‡æ¢æŒ‰é’®ç‚¹å‡»æ¬¡æ•°
 	View.OnClickListener btnClickListener = new View.OnClickListener() {
 		@Override
 		public void onClick(View v) {
@@ -167,7 +191,7 @@ public class FullscreenActivity extends Activity {
 	};
 
 	/*
-	 * ¼àÌı·µ»ØÊÂ¼ş
+	 * ç›‘å¬è¿”å›äº‹ä»¶
 	 * 
 	 * @see android.app.Activity#onKeyDown(int, android.view.KeyEvent)
 	 */
@@ -176,7 +200,7 @@ public class FullscreenActivity extends Activity {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
 			long secondTime = System.currentTimeMillis();
 			if (secondTime - firstTime > 2000) {
-				Toast.makeText(FullscreenActivity.this, "ÔÙ°´Ò»´ÎÍË³ö³ÌĞò", Toast.LENGTH_SHORT).show();
+				Toast.makeText(FullscreenActivity.this, "å†æŒ‰ä¸€æ¬¡é€€å‡ºç¨‹åº", Toast.LENGTH_SHORT).show();
 				firstTime = secondTime;
 				return true;
 			} else {
@@ -302,7 +326,8 @@ public class FullscreenActivity extends Activity {
 			+ "  |XXX|       \\XXX/^^\\XXXXX/^^\\XXX/       |XXX|  \n" //
 			+ "    \\XX\\       \\X/    \\XXX/    \\X/       /XX/    \n" //
 			+ "       \"\\       \"      \\X/      \"      /\"        "; //
-
+	private String happybirthday01 = "ç”Ÿ\næ—¥\nå¿«\nä¹\n817";
+	private String happybirthday02 = "ç”Ÿ\næ—¥\nå¿«\nä¹\nä¸ƒÂ·å…«";
 
 	public void findTypeTextViews() {
 		mTypeTextView = (TypeTextView) findViewById(R.id.typeTxtId);
@@ -330,15 +355,15 @@ public class FullscreenActivity extends Activity {
 
 		@Override
 		public void onClick(View v) {
-			// ½«Êı×éÄÚµÄËùÓĞÔªËØ×óÒÆÒ»¸öÎ»ÖÃ
+			// å°†æ•°ç»„å†…çš„æ‰€æœ‰å…ƒç´ å·¦ç§»ä¸€ä¸ªä½ç½®
 			System.arraycopy(doubleHints, 1, doubleHints, 0, doubleHints.length - 1);
 			System.arraycopy(threeHints, 1, threeHints, 0, threeHints.length - 1);
-			// »ñµÃµ±Ç°ÏµÍ³ÒÑ¾­Æô¶¯µÄÊ±¼ä
+			// è·å¾—å½“å‰ç³»ç»Ÿå·²ç»å¯åŠ¨çš„æ—¶é—´
 			doubleHints[doubleHints.length - 1] = SystemClock.uptimeMillis();
 			threeHints[threeHints.length - 1] = SystemClock.uptimeMillis();
-			if (SystemClock.uptimeMillis() - threeHints[0] <= 700) {// ÈıÁ¬»÷
+			if (SystemClock.uptimeMillis() - threeHints[0] <= 700) {// ä¸‰è¿å‡»
 
-			} else if (SystemClock.uptimeMillis() - doubleHints[0] <= 500) {// Ë«»÷
+			} else if (SystemClock.uptimeMillis() - doubleHints[0] <= 500) {// åŒå‡»
 				startTextView(clickTimes1);
 				clickTimes1++;
 			}
@@ -351,14 +376,14 @@ public class FullscreenActivity extends Activity {
 		@Override
 		public boolean onTouch(View view, MotionEvent event) {
 			// TODO Auto-generated method stub
-			// ¼Ì³ĞÁËActivityµÄonTouchEvent·½·¨£¬Ö±½Ó¼àÌıµã»÷ÊÂ¼ş
+			// ç»§æ‰¿äº†Activityçš„onTouchEventæ–¹æ³•ï¼Œç›´æ¥ç›‘å¬ç‚¹å‡»äº‹ä»¶
 			if (event.getAction() == MotionEvent.ACTION_DOWN) {
-				// µ±ÊÖÖ¸°´ÏÂµÄÊ±ºò
+				// å½“æ‰‹æŒ‡æŒ‰ä¸‹çš„æ—¶å€™
 				startX = event.getX();
 				startY = event.getY();
 			}
 			if (event.getAction() == MotionEvent.ACTION_UP) {
-				// µ±ÊÖÖ¸Àë¿ªµÄÊ±ºò
+				// å½“æ‰‹æŒ‡ç¦»å¼€çš„æ—¶å€™
 				offsetX = Math.abs(event.getX() - startX);
 				offsetY = Math.abs(event.getY() - startY);
 				if (offsetX >= 150 && offsetY >= 150) {
@@ -402,6 +427,41 @@ public class FullscreenActivity extends Activity {
 //			mTypeTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
 //			mTypeTextView.start(something);
 //		}
+		else if (times == -1) {
+			mTypeTextView.setBackgroundColor(0x00ffffff);
+			mTypeTextView.setTextColor(0xffd81e06);
+			mTypeTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 92);
+			mTypeTextView.start(happybirthday01);
+		}
+		else if (times == -2) {
+			mTypeTextView.setBackgroundColor(0x00ffffff);
+			mTypeTextView.setTextColor(0xffd81e06);
+			mTypeTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 92);
+			mTypeTextView.start(happybirthday02);
+		}
+		else if (times == -3) {
+			mTypeTextView.setBackgroundColor(0x00ffffff);
+			mTypeTextView.setTextColor(0xffd81e06);
+			mTypeTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 48);
+			mTypeTextView.start(getString());
+		}
+	}
+
+
+	private String getString()
+	{
+		List<String> list = new ArrayList<>();
+		list.add("å¯\nçˆ±\nå°\nå§\nå§");
+		list.add(" <â—¡â€¿â—¡> ");
+		list.add(" <â—•â€¿â—•> ");
+		list.add(" <â—”Ü«â—”> ");
+		list.add(" <áƒ¦Ë˜âŒ£Ë˜áƒ¦> ");
+		list.add(" <â—¡â€¿â—¡> ");
+		list.add(" <â—•â€¿â—•> ");
+		list.add(" <â—”Ü«â—”> ");
+		list.add(" <áƒ¦Ë˜âŒ£Ë˜áƒ¦> ");
+		list.add("æˆ‘\nå¥½\nå–œ\næ¬¢\nä½ ");
+		return list.get((int)(Math.random() * list.size()));
 	}
 
 }

@@ -20,7 +20,7 @@ public class JigsawPuzzleActivity extends Activity {
 	private int imgIndex = 0;
 	private int[] bitmapArr = { R.drawable.whale2, R.drawable.deer2, R.drawable.dolphin2, R.drawable.seafloor2,
 			R.drawable.hunt2, R.drawable.hotel2 };
-	private int time = 0;// ÓÎÏ·Ê±¼ä
+	private int time = 0;// æ¸¸æˆæ—¶é—´
 	private boolean countFlag = false;
 
 	public JigsawPuzzleActivity() {
@@ -124,7 +124,7 @@ public class JigsawPuzzleActivity extends Activity {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
 			long secondTime = System.currentTimeMillis();
 			if (secondTime - firstTime > 2000) {
-				Toast.makeText(this, "ÔÙ°´Ò»´ÎÍË³öÒ³Ãæ", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "å†æŒ‰ä¸€æ¬¡é€€å‡ºé¡µé¢", Toast.LENGTH_SHORT).show();
 				firstTime = secondTime;
 				return true;
 			} else {

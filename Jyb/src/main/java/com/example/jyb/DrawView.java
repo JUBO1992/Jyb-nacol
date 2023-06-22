@@ -31,14 +31,14 @@ public class DrawView extends View {
 		flowerCenter(width/2, height/2, canvas);
 	}
 	
-	// x,yÎª»¨¶äÖĞĞÄÎ»ÖÃ
+	// x,yä¸ºèŠ±æœµä¸­å¿ƒä½ç½®
 	private void flowerCenter(int x, int y, Canvas canvas){
 		flower(x-195, y-354, canvas);
 	}
 
-	// x,yÎª»¨¶ä×óÉÏ½Ç
+	// x,yä¸ºèŠ±æœµå·¦ä¸Šè§’
 	private void flower(int x, int y, Canvas canvas) {
-		// »­Ö¦¸É
+		// ç”»æå¹²
 		Paint paint = new Paint();
 		paint.setColor(Color.GREEN);
 		canvas.drawLine(x+189, y+372, x+180, y+400, paint);
@@ -53,7 +53,7 @@ public class DrawView extends View {
 		canvas.drawLine(x+189, y+372, x+182, y+400, paint);
 		canvas.drawLine(x+189, y+372, x+200, y+120, paint);
 
-		// »­»¨¶ä
+		// ç”»èŠ±æœµ
 		flower(x+320, y+160, Color.RED, canvas);
 		flower(x+200, y+120, Color.YELLOW, canvas);
 		flower(x+150, y+140, Color.MAGENTA, canvas);
@@ -63,11 +63,11 @@ public class DrawView extends View {
 		flower(x+325, y+68, Color.rgb(228, 119, 98), canvas);
 		flower(x+253, y+190, Color.rgb(247, 169, 117), canvas);
 
-		// »­ºûµû½á
+		// ç”»è´è¶ç»“
 		tie(x+195, y+354, Color.MAGENTA, canvas);
 	}
 
-	// »­ »¨¶ä
+	// ç”» èŠ±æœµ
 	private void flower(int x, int y, int color, Canvas canvas) {
 		int x1, y1, x2, y2;
 		int d = 15;
@@ -84,7 +84,7 @@ public class DrawView extends View {
 		}
 	}
 
-	// »­ ºûµû½á
+	// ç”» è´è¶ç»“
 	private void tie(int x, int y, int color, Canvas canvas) {
 		int x1, y1, x2, y2;
 		int d = 80;

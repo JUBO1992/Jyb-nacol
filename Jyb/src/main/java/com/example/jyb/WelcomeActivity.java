@@ -21,14 +21,14 @@ public class WelcomeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_welcome);
+		getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.activity_welcome);
 		findViewById(R.id.skipWelcome_btn).setOnClickListener(btnClickListener);
 
         InitWelcomePage();
         
         handler = new Handler();
-        // ÑÓ³ÙÌø×ªµ½MainActivity
+        // å»¶è¿Ÿè·³è½¬åˆ°MainActivity
         handler.postDelayed(new Runnable() {
 
             @Override
@@ -82,48 +82,49 @@ public class WelcomeActivity extends Activity {
     	findViewById(R.id.solarTextV).setVisibility(View.INVISIBLE);
     	findViewById(R.id.lunarTextV).setVisibility(View.INVISIBLE);
     	findViewById(R.id.skipWelcome_btn).setVisibility(View.VISIBLE);
-//    	solarTextV.setText(m+"ÔÂ"+d+"ÈÕ");
+//    	solarTextV.setText(m+"æœˆ"+d+"æ—¥");
     	solarTextV.setText(DateUtils.getDate());
     	lunarTextV.setText(lm+ld);
     	
     	interval = 5000;
-    	if(m==8 && d==17) {
+		if(m==2 && d==14) {
+			imgView.setBackgroundResource(R.drawable.welcome01);
+		}else if(lm.equals("ä¸ƒæœˆ") && ld.equals("åˆä¸ƒ")) {
+			imgView.setBackgroundResource(R.drawable.welcome01);
+		}else if(m==8 && d==17) {
     		imgView.setBackgroundResource(R.drawable.welcome02);
-    	}else if(m==2 && d==14) {
-    		imgView.setBackgroundResource(R.drawable.welcome01);
-    	}else if(lm=="ÆßÔÂ" && ld=="³õÆß") {
-    		imgView.setBackgroundResource(R.drawable.welcome01);
-    	}else if(lm=="À°ÔÂ" && ld=="ÈıÊ®") {
+		}else if(lm.equals("ä¸ƒæœˆ") && ld.equals("åˆå…«")) {
+			imgView.setBackgroundResource(R.drawable.welcome02);
+    	}else if(lm.equals("è…Šæœˆ") && ld.equals("ä¸‰å")) {
     		imgView.setBackgroundResource(R.drawable.welcome03);
-    	}else if(lm=="ÕıÔÂ" && ld=="³õÒ»") {
+    	}else if(lm.equals("æ­£æœˆ") && ld.equals("åˆä¸€")) {
     		imgView.setBackgroundResource(R.drawable.welcome04);
-    	}else if(lm=="ÕıÔÂ" && ld=="Ê®Îå") {
+    	}else if(lm.equals("æ­£æœˆ") && ld.equals("åäº”")) {
     		imgView.setBackgroundResource(R.drawable.welcome05);
     	}else if(m==12 && d==25) {
     		imgView.setBackgroundResource(R.drawable.welcome06);
     	}else { 
     		findViewById(R.id.solarTextV).setVisibility(View.VISIBLE);
     		findViewById(R.id.lunarTextV).setVisibility(View.VISIBLE);
-    		findViewById(R.id.skipWelcome_btn).setVisibility(View.INVISIBLE);
-    		interval = 817 * 2;
-    		if(week == "ĞÇÆÚÒ»") {
+    		findViewById(R.id.skipWelcome_btn).setVisibility(View.VISIBLE);
+    		interval = 817 * 6;
+    		if(week.equals("æ˜ŸæœŸä¸€")) {
     			imgView.setBackgroundResource(R.drawable.welcome14);
-    		}else if(week == "ĞÇÆÚ¶ş") {
+    		}else if(week.equals("æ˜ŸæœŸäºŒ")) {
     			imgView.setBackgroundResource(R.drawable.welcome15);
-    		}else if(week == "ĞÇÆÚÈı") {
+    		}else if(week.equals("æ˜ŸæœŸä¸‰")) {
     			imgView.setBackgroundResource(R.drawable.welcome16);
-    		}else if(week == "ĞÇÆÚËÄ") {
+    		}else if(week.equals("æ˜ŸæœŸå››")) {
     			imgView.setBackgroundResource(R.drawable.welcome17);
-    		}else if(week == "ĞÇÆÚÎå") {
+    		}else if(week.equals("æ˜ŸæœŸäº”")) {
     			imgView.setBackgroundResource(R.drawable.welcome18);
-    		}else if(week == "ĞÇÆÚÁù") {
+    		}else if(week.equals("æ˜ŸæœŸå…­")) {
     			imgView.setBackgroundResource(R.drawable.welcome19);
-    		}else if(week == "ĞÇÆÚÈÕ") {
+    		}else if(week.equals("æ˜ŸæœŸæ—¥")) {
     			imgView.setBackgroundResource(R.drawable.welcome20);
     		}else {
         		imgView.setImageResource(R.drawable.welcome_1);
     		}
-    		
     	}
     }
 }

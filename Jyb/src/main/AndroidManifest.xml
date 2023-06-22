@@ -124,10 +124,9 @@
 
         <receiver android:name=".AlarmReceiver">
             <intent-filter>
-                <action android:name="com.example.jyb.TIMER_ACTION_REPEATING"/>
+                <action android:name="com.example.jyb.TIMER_ACTION"/>
                 <action android:name="com.example.jyb.TIMER_ACTION_REPEATING1"/>
                 <action android:name="com.example.jyb.TIMER_ACTION_REPEATING2"/>
-                <action android:name="com.example.jyb.TIMER_ACTION"/>
             </intent-filter>
         </receiver>
     </application>

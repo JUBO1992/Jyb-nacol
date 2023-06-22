@@ -5,29 +5,29 @@ import java.util.GregorianCalendar;
 
 public class LunarCalendar {
 	/**
-     * Ö§³Ö×ª»»µÄ×îĞ¡Å©ÀúÄê·İ
+     * æ”¯æŒè½¬æ¢çš„æœ€å°å†œå†å¹´ä»½
      */
     public static final int MIN_YEAR = 1900;
     /**
-     * Ö§³Ö×ª»»µÄ×î´óÅ©ÀúÄê·İ
+     * æ”¯æŒè½¬æ¢çš„æœ€å¤§å†œå†å¹´ä»½
      */
     public static final int MAX_YEAR = 2099;
 
     /**
-     * ¹«ÀúÃ¿ÔÂÇ°µÄÌìÊı
+     * å…¬å†æ¯æœˆå‰çš„å¤©æ•°
      */
     private static final int DAYS_BEFORE_MONTH[] = { 0, 31, 59, 90, 120, 151, 181,
             212, 243, 273, 304, 334, 365 };
 
     /**
-     * ÓÃÀ´±íÊ¾1900Äêµ½2099Äê¼äÅ©ÀúÄê·İµÄÏà¹ØĞÅÏ¢£¬¹²24Î»bitµÄ16½øÖÆ±íÊ¾£¬ÆäÖĞ£º
-     * 1. Ç°4Î»±íÊ¾¸ÃÄêÈòÄÄ¸öÔÂ£»
-     * 2. 5-17Î»±íÊ¾Å©ÀúÄê·İ13¸öÔÂµÄ´óĞ¡ÔÂ·Ö²¼£¬0±íÊ¾Ğ¡£¬1±íÊ¾´ó£»
-     * 3. ×îºó7Î»±íÊ¾Å©ÀúÄêÊ×£¨ÕıÔÂ³õÒ»£©¶ÔÓ¦µÄ¹«ÀúÈÕÆÚ¡£
+     * ç”¨æ¥è¡¨ç¤º1900å¹´åˆ°2099å¹´é—´å†œå†å¹´ä»½çš„ç›¸å…³ä¿¡æ¯ï¼Œå…±24ä½bitçš„16è¿›åˆ¶è¡¨ç¤ºï¼Œå…¶ä¸­ï¼š
+     * 1. å‰4ä½è¡¨ç¤ºè¯¥å¹´é—°å“ªä¸ªæœˆï¼›
+     * 2. 5-17ä½è¡¨ç¤ºå†œå†å¹´ä»½13ä¸ªæœˆçš„å¤§å°æœˆåˆ†å¸ƒï¼Œ0è¡¨ç¤ºå°ï¼Œ1è¡¨ç¤ºå¤§ï¼›
+     * 3. æœ€å7ä½è¡¨ç¤ºå†œå†å¹´é¦–ï¼ˆæ­£æœˆåˆä¸€ï¼‰å¯¹åº”çš„å…¬å†æ—¥æœŸã€‚
      *
-     * ÒÔ2014ÄêµÄÊı¾İ0x955ABFÎªÀıËµÃ÷£º
+     * ä»¥2014å¹´çš„æ•°æ®0x955ABFä¸ºä¾‹è¯´æ˜ï¼š
      *                 1001 0101 0101 1010 1011 1111
-     *                 Èò¾ÅÔÂ                                  Å©ÀúÕıÔÂ³õÒ»¶ÔÓ¦¹«Àú1ÔÂ31ºÅ
+     *                 é—°ä¹æœˆ                                  å†œå†æ­£æœˆåˆä¸€å¯¹åº”å…¬å†1æœˆ31å·
      */
     private static final int LUNAR_INFO[] = {
             0x84B6BF,/*1900*/
@@ -54,12 +54,12 @@ public class LunarCalendar {
     };
 
     /**
-     * ½«Å©ÀúÈÕÆÚ×ª»»Îª¹«ÀúÈÕÆÚ
-     * @param year                        Å©ÀúÄê·İ
-     * @param month                        Å©ÀúÔÂ
-     * @param monthDay                Å©ÀúÈÕ
-     * @param isLeapMonth        ¸ÃÔÂÊÇ·ñÊÇÈòÔÂ
-     * [url=home.php?mod=space&uid=7300]@return[/url] ·µ»ØÅ©ÀúÈÕÆÚ¶ÔÓ¦µÄ¹«ÀúÈÕÆÚ£¬year0, month1, day2.
+     * å°†å†œå†æ—¥æœŸè½¬æ¢ä¸ºå…¬å†æ—¥æœŸ
+     * @param year                        å†œå†å¹´ä»½
+     * @param month                        å†œå†æœˆ
+     * @param monthDay                å†œå†æ—¥
+     * @param isLeapMonth        è¯¥æœˆæ˜¯å¦æ˜¯é—°æœˆ
+     * [url=home.php?mod=space&uid=7300]@return[/url] è¿”å›å†œå†æ—¥æœŸå¯¹åº”çš„å…¬å†æ—¥æœŸï¼Œyear0, month1, day2.
      */
     public static final int[] lunarToSolar(int year, int month, int monthDay,
                                            boolean isLeapMonth) {
@@ -91,7 +91,7 @@ public class LunarCalendar {
         dayOffset += monthDay;
         leapMonth = (LUNAR_INFO[year - MIN_YEAR] & 0xf00000) >> 20;
 
-        // ÕâÒ»ÄêÓĞÈòÔÂ
+        // è¿™ä¸€å¹´æœ‰é—°æœˆ
         if (leapMonth != 0) {
             if (month > leapMonth || (month == leapMonth && isLeapMonth)) {
                 if ((LUNAR_INFO[year - MIN_YEAR] & (0x80000 >> (month - 1))) == 0)
@@ -147,11 +147,11 @@ public class LunarCalendar {
     }
 
     /**
-     * ½«¹«ÀúÈÕÆÚ×ª»»ÎªÅ©ÀúÈÕÆÚ£¬ÇÒ±êÊ¶ÊÇ·ñÊÇÈòÔÂ
+     * å°†å…¬å†æ—¥æœŸè½¬æ¢ä¸ºå†œå†æ—¥æœŸï¼Œä¸”æ ‡è¯†æ˜¯å¦æ˜¯é—°æœˆ
      * @param year
      * @param month
      * @param monthDay
-     * @return ·µ»Ø¹«ÀúÈÕÆÚ¶ÔÓ¦µÄÅ©ÀúÈÕÆÚ£¬year0£¬month1£¬day2£¬leap3
+     * @return è¿”å›å…¬å†æ—¥æœŸå¯¹åº”çš„å†œå†æ—¥æœŸï¼Œyear0ï¼Œmonth1ï¼Œday2ï¼Œleap3
      */
     public static final int[] solarToLunar(int year, int month, int monthDay) {
         int[] lunarDate = new int[4];
@@ -159,8 +159,8 @@ public class LunarCalendar {
         Date objDate = new GregorianCalendar(year, month - 1, monthDay).getTime();
         int offset = (int) ((objDate.getTime() - baseDate.getTime()) / 86400000L);
 
-        // ÓÃoffset¼õÈ¥Ã¿Å©ÀúÄêµÄÌìÊı¼ÆËãµ±ÌìÊÇÅ©ÀúµÚ¼¸Ìì
-        // iYear×îÖÕ½á¹ûÊÇÅ©ÀúµÄÄê·İ, offsetÊÇµ±ÄêµÄµÚ¼¸Ìì
+        // ç”¨offsetå‡å»æ¯å†œå†å¹´çš„å¤©æ•°è®¡ç®—å½“å¤©æ˜¯å†œå†ç¬¬å‡ å¤©
+        // iYearæœ€ç»ˆç»“æœæ˜¯å†œå†çš„å¹´ä»½, offsetæ˜¯å½“å¹´çš„ç¬¬å‡ å¤©
         int iYear, daysOfYear = 0;
         for (iYear = MIN_YEAR; iYear <= MAX_YEAR && offset > 0; iYear++) {
             daysOfYear = daysInLunarYear(iYear);
@@ -171,18 +171,18 @@ public class LunarCalendar {
             iYear--;
         }
 
-        // Å©ÀúÄê·İ
+        // å†œå†å¹´ä»½
         lunarDate[0] = iYear;
 
-        int leapMonth = leapMonth(iYear); // ÈòÄÄ¸öÔÂ,1-12
+        int leapMonth = leapMonth(iYear); // é—°å“ªä¸ªæœˆ,1-12
         boolean isLeap = false;
-        // ÓÃµ±ÄêµÄÌìÊıoffset,Öğ¸ö¼õÈ¥Ã¿ÔÂ£¨Å©Àú£©µÄÌìÊı£¬Çó³öµ±ÌìÊÇ±¾ÔÂµÄµÚ¼¸Ìì
+        // ç”¨å½“å¹´çš„å¤©æ•°offset,é€ä¸ªå‡å»æ¯æœˆï¼ˆå†œå†ï¼‰çš„å¤©æ•°ï¼Œæ±‚å‡ºå½“å¤©æ˜¯æœ¬æœˆçš„ç¬¬å‡ å¤©
         int iMonth, daysOfMonth = 0;
         for (iMonth = 1; iMonth <= 13 && offset > 0; iMonth++) {
             daysOfMonth = daysInLunarMonth(iYear, iMonth);
             offset -= daysOfMonth;
         }
-        // µ±Ç°ÔÂ³¬¹ıÈòÔÂ£¬ÒªĞ£Õı
+        // å½“å‰æœˆè¶…è¿‡é—°æœˆï¼Œè¦æ ¡æ­£
         if (leapMonth != 0 && iMonth > leapMonth) {
             --iMonth;
 
@@ -190,7 +190,7 @@ public class LunarCalendar {
                 isLeap = true;
             }
         }
-        // offsetĞ¡ÓÚ0Ê±£¬Ò²ÒªĞ£Õı
+        // offsetå°äº0æ—¶ï¼Œä¹Ÿè¦æ ¡æ­£
         if (offset < 0) {
             offset += daysOfMonth;
             --iMonth;
@@ -204,36 +204,36 @@ public class LunarCalendar {
     }
 
     /**
-     * ´«»ØÅ©ÀúyearÄêmonthÔÂµÄ×ÜÌìÊı
-     * @param year Òª¼ÆËãµÄÄê·İ
-     * @param month        Òª¼ÆËãµÄÔÂ
-     * @return ´«»ØÌìÊı
+     * ä¼ å›å†œå†yearå¹´monthæœˆçš„æ€»å¤©æ•°
+     * @param year è¦è®¡ç®—çš„å¹´ä»½
+     * @param month        è¦è®¡ç®—çš„æœˆ
+     * @return ä¼ å›å¤©æ•°
      */
     final public static int daysInMonth(int year, int month) {
         return daysInMonth(year, month, false);
     }
 
     /**
-     * ´«»ØÅ©ÀúyearÄêmonthÔÂµÄ×ÜÌìÊı
-     * @param year Òª¼ÆËãµÄÄê·İ
-     * @param month        Òª¼ÆËãµÄÔÂ
-     * @param leap µ±ÔÂÊÇ·ñÊÇÈòÔÂ
-     * @return ´«»ØÌìÊı£¬Èç¹ûÈòÔÂÊÇ´íÎóµÄ£¬·µ»Ø0.
+     * ä¼ å›å†œå†yearå¹´monthæœˆçš„æ€»å¤©æ•°
+     * @param year è¦è®¡ç®—çš„å¹´ä»½
+     * @param month        è¦è®¡ç®—çš„æœˆ
+     * @param leap å½“æœˆæ˜¯å¦æ˜¯é—°æœˆ
+     * @return ä¼ å›å¤©æ•°ï¼Œå¦‚æœé—°æœˆæ˜¯é”™è¯¯çš„ï¼Œè¿”å›0.
      */
     public static final int daysInMonth(int year, int month, boolean leap) {
         int leapMonth = leapMonth(year);
         int offset = 0;
 
-        // Èç¹û±¾ÄêÓĞÈòÔÂÇÒmonth´óÓÚÈòÔÂÊ±£¬ĞèÒªĞ£Õı
+        // å¦‚æœæœ¬å¹´æœ‰é—°æœˆä¸”monthå¤§äºé—°æœˆæ—¶ï¼Œéœ€è¦æ ¡æ­£
         if (leapMonth != 0 && month > leapMonth) {
             offset = 1;
         }
 
-        // ²»¿¼ÂÇÈòÔÂ
+        // ä¸è€ƒè™‘é—°æœˆ
         if (!leap) {
             return daysInLunarMonth(year, month + offset);
         } else {
-            // ´«ÈëµÄÈòÔÂÊÇÕıÈ·µÄÔÂ·İ
+            // ä¼ å…¥çš„é—°æœˆæ˜¯æ­£ç¡®çš„æœˆä»½
             if (leapMonth != 0 && leapMonth == month) {
                 return daysInLunarMonth(year, month + 1);
             }
@@ -243,10 +243,10 @@ public class LunarCalendar {
     }
 
     /**
-     * ´«»ØÅ©Àú yearÄêµÄ×ÜÌìÊı
+     * ä¼ å›å†œå† yearå¹´çš„æ€»å¤©æ•°
      *
-     * @param year ½«Òª¼ÆËãµÄÄê·İ
-     * @return ·µ»Ø´«ÈëÄê·İµÄ×ÜÌìÊı
+     * @param year å°†è¦è®¡ç®—çš„å¹´ä»½
+     * @return è¿”å›ä¼ å…¥å¹´ä»½çš„æ€»å¤©æ•°
      */
     private static int daysInLunarYear(int year) {
         int i, sum = 348;
@@ -262,11 +262,11 @@ public class LunarCalendar {
     }
 
     /**
-     * ´«»ØÅ©Àú yearÄêmonthÔÂµÄ×ÜÌìÊı£¬×Ü¹²ÓĞ13¸öÔÂ°üÀ¨ÈòÔÂ
+     * ä¼ å›å†œå† yearå¹´monthæœˆçš„æ€»å¤©æ•°ï¼Œæ€»å…±æœ‰13ä¸ªæœˆåŒ…æ‹¬é—°æœˆ
      *
-     * @param year  ½«Òª¼ÆËãµÄÄê·İ
-     * @param month ½«Òª¼ÆËãµÄÔÂ·İ
-     * @return ´«»ØÅ©Àú yearÄêmonthÔÂµÄ×ÜÌìÊı
+     * @param year  å°†è¦è®¡ç®—çš„å¹´ä»½
+     * @param month å°†è¦è®¡ç®—çš„æœˆä»½
+     * @return ä¼ å›å†œå† yearå¹´monthæœˆçš„æ€»å¤©æ•°
      */
     private static int daysInLunarMonth(int year, int month) {
         if ((LUNAR_INFO[year - MIN_YEAR] & (0x100000 >> month)) == 0)
@@ -276,10 +276,10 @@ public class LunarCalendar {
     }
 
     /**
-     * ´«»ØÅ©Àú yearÄêÈòÄÄ¸öÔÂ 1-12 , Ã»Èò´«»Ø 0
+     * ä¼ å›å†œå† yearå¹´é—°å“ªä¸ªæœˆ 1-12 , æ²¡é—°ä¼ å› 0
      *
-     * @param year ½«Òª¼ÆËãµÄÄê·İ
-     * @return ´«»ØÅ©Àú yearÄêÈòÄÄ¸öÔÂ1-12, Ã»Èò´«»Ø 0
+     * @param year å°†è¦è®¡ç®—çš„å¹´ä»½
+     * @return ä¼ å›å†œå† yearå¹´é—°å“ªä¸ªæœˆ1-12, æ²¡é—°ä¼ å› 0
      */
     private static int leapMonth(int year) {
         return (int) ((LUNAR_INFO[year - MIN_YEAR] & 0xF00000)) >> 20;

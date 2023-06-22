@@ -13,22 +13,24 @@
         android:background="@drawable/btnbg_close" />
 
     <TextView
+        android:id="@+id/author_info"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:gravity="center"
         android:text="Created by JUBO"
         android:textColor="#ffffff"
-        android:textSize="20dp" />
+        android:textSize="24dp" />
     
     <TextView
+        android:id="@+id/version_info"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="60dp"
         android:gravity="center"
         android:text="Version: 1.8.17\n\nHAPPY BIRTHDAY"
         android:textColor="#ffffff"
-        android:textSize="18dp" />
+        android:textSize="20dp" />
 
 </FrameLayout>

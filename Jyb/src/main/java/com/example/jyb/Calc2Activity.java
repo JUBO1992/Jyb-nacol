@@ -21,12 +21,12 @@ import android.widget.Toast;
 
 public class Calc2Activity extends Activity {
 	private long firstTime = 0;
-	EditText rsText = null; // ¹«Ê½ÏÔÊ¾Æ÷
-	EditText hexText = null; // Ê®Áù½øÖÆ½á¹ûÏÔÊ¾Æ÷
-	EditText decText = null; // Ê®½øÖÆ½á¹ûÏÔÊ¾Æ÷
-	EditText octText = null; // °Ë½øÖÆ½á¹ûÏÔÊ¾Æ÷
-	EditText binText = null; // ¶ş½øÖÆ½á¹ûÏÔÊ¾Æ÷
-	EditText selText = null; // µ±Ç°Ñ¡ÖĞµÄÏÔÊ¾Æ÷
+	EditText rsText = null; // å…¬å¼æ˜¾ç¤ºå™¨
+	EditText hexText = null; // åå…­è¿›åˆ¶ç»“æœæ˜¾ç¤ºå™¨
+	EditText decText = null; // åè¿›åˆ¶ç»“æœæ˜¾ç¤ºå™¨
+	EditText octText = null; // å…«è¿›åˆ¶ç»“æœæ˜¾ç¤ºå™¨
+	EditText binText = null; // äºŒè¿›åˆ¶ç»“æœæ˜¾ç¤ºå™¨
+	EditText selText = null; // å½“å‰é€‰ä¸­çš„æ˜¾ç¤ºå™¨
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -165,7 +165,7 @@ public class Calc2Activity extends Activity {
 				setResult(exp);
 				break;
 			}
-			// °´¼üÍê³ÉºóÊ¼ÖÕ±£³Ö¹â±êÔÚ×îºóÒ»Î»
+			// æŒ‰é”®å®Œæˆåå§‹ç»ˆä¿æŒå…‰æ ‡åœ¨æœ€åä¸€ä½
 			rsText.setSelection(rsText.getText().length());
 		}
 	};
@@ -262,20 +262,20 @@ public class Calc2Activity extends Activity {
 	}
 
 	/*
-	 * ¶ÁÈ¡Êı×Ö×Ö·û´®¼°½øÖÆ
+	 * è¯»å–æ•°å­—å­—ç¬¦ä¸²åŠè¿›åˆ¶
 	 */
 	private long readNumber(String input, int base) {
 		int inputLength = input.length();
 		if (inputLength == 0) {
-			return -1; // ÊäÈë×Ö·û´®²»¶Ô
+			return -1; // è¾“å…¥å­—ç¬¦ä¸²ä¸å¯¹
 		}
 		if (base < 2 || base > 16) {
-			return -1; // ÊäÈë½øÖÆ²»¶Ô
+			return -1; // è¾“å…¥è¿›åˆ¶ä¸å¯¹
 		}
 		long number = 0;
 		for (int i = 0; i < inputLength; i++) {
-			char c = input.charAt(i); // È¡Ò»¸ö×Ö·û
-			int d; // ×Ö·û×ª³ÉÊı×Ö
+			char c = input.charAt(i); // å–ä¸€ä¸ªå­—ç¬¦
+			int d; // å­—ç¬¦è½¬æˆæ•°å­—
 			if (c >= '0' && c <= '9') {
 				d = c - '0';
 			} else if (c >= 'A' && c <= 'F') {
@@ -283,17 +283,17 @@ public class Calc2Activity extends Activity {
 			} else if (c >= 'a' && c <= 'f') {
 				d = c - 'a' + 10;
 			} else {
-				return -1; // ×Ö·û²»¶Ô
+				return -1; // å­—ç¬¦ä¸å¯¹
 			}
 
 			if (d >= base) {
-				return -1; // ÊäÈë×Ö·û³¬¹ı½øÖÆÔÊĞí·¶Î§
+				return -1; // è¾“å…¥å­—ç¬¦è¶…è¿‡è¿›åˆ¶å…è®¸èŒƒå›´
 			}
 
 			number *= base;
 			number += d;
 			if (number < 0) {
-				return -1; // ÊäÈëÊı×ÖÌ«´ó
+				return -1; // è¾“å…¥æ•°å­—å¤ªå¤§
 			}
 		}
 		return number;
@@ -301,7 +301,7 @@ public class Calc2Activity extends Activity {
 
 	private String writeNumber(long number, int base) {
 		if (base < 2 || base > 16) {
-			return null; // Êä³ö½øÖÆ²»¶Ô
+			return null; // è¾“å‡ºè¿›åˆ¶ä¸å¯¹
 		}
 
 		char buffer;
@@ -330,7 +330,7 @@ public class Calc2Activity extends Activity {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
 			long secondTime = System.currentTimeMillis();
 			if (secondTime - firstTime > 2000) {
-				Toast.makeText(this, "ÔÙ°´Ò»´ÎÍË³öÒ³Ãæ", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "å†æŒ‰ä¸€æ¬¡é€€å‡ºé¡µé¢", Toast.LENGTH_SHORT).show();
 				firstTime = secondTime;
 				return true;
 			} else {
