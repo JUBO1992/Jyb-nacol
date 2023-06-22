@@ -8,8 +8,8 @@
         style="?metaButtonBarButtonStyle"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/btnbg_close" />
 
     <TextView
@@ -23,11 +23,11 @@
     
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="80dp"
         android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="35dp"
         android:gravity="center"
-        android:text="1.0.1"
+        android:text="Version: 1.8.17\n\nHAPPY BIRTHDAY"
         android:textColor="#ffffff"
         android:textSize="18dp" />
 

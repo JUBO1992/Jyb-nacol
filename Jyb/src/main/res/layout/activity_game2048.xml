@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="50dp"
         android:text="Game 2048"
         android:textColor="#ff6600"
         android:textSize="32dp" />
@@ -21,7 +21,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp" >
+        android:layout_marginTop="50dp" >
 
         <!-- android:layout_width设置为150dp卡片不显示 -->
 
@@ -56,7 +56,7 @@
         android:layout_height="1dp"
         android:layout_gravity="center"
         android:layout_marginBottom="70dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="60dp"
         android:layout_weight="1"
         android:background="@drawable/bg_gameview"
         android:gravity="center" >
