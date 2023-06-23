@@ -32,6 +32,18 @@
         android:textColor="#ffffff"
         android:textSize="30dp" />
 
+	<TextView
+		android:id="@+id/gestationWeek"
+		android:layout_width="wrap_content"
+		android:layout_height="80dp"
+		android:gravity="center"
+		android:layout_gravity="bottom|center_horizontal"
+		android:layout_marginBottom="120dp"
+		android:text="00周01天"
+		android:textStyle="bold"
+		android:textColor="#13227a"
+		android:textSize="30dp" />
+
     <Button
 	    android:id="@+id/skipWelcome_btn"
 	    android:layout_width="50dp"

@@ -28,4 +28,5 @@ android {
 
 dependencies {
     implementation files('libs/bsh-2.0b4.jar')
+    implementation 'cn.hutool:hutool-all:5.3.8'
 }
