@@ -3,10 +3,10 @@ package com.example.partical;
 public class RainScence extends EffectScence{
 
 	/**
-	 * 雨景构�??
+	 * 雨景构建
 	 * @param rainNum	雨点数量
-	 * @param width		雨点显示屏幕�?
-	 * @param height	雨点显示屏幕�?
+	 * @param width		雨点显示屏幕宽度
+	 * @param height	雨点显示屏幕高度
 	 */
 	@Deprecated
 	public RainScence(int width, int height, int rainNum){

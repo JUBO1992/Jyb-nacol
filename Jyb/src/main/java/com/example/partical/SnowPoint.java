@@ -9,7 +9,7 @@ import android.util.Log;
 public class SnowPoint extends EffectItem{
 
 	private Paint paint = new Paint();
-	private final int size = 36; // 长度�?0-50像素
+	private final int size = 36; // 长度0-50像素
 	private Rect point; // 雪点
 	private Point speed; // 雪点x,y方向速度
 
@@ -34,7 +34,7 @@ public class SnowPoint extends EffectItem{
 		reset();
 	}
 	public void draw(Canvas canvas) {
-		//变长小于等于８绘制圆�?
+		//变长小于等于８绘制圆
 		if(point.width() <= 8){
 			canvas.drawCircle(point.left, point.top, point.width() / 2, paint);
 		}
@@ -72,7 +72,7 @@ public class SnowPoint extends EffectItem{
 		int h = rand.nextInt(size);
 		
 		if(w > 8){
-			//勾３股４弦５（宽是４的�?�数，高是３的�?�数�?
+			//勾３股４弦５（宽是４的倍数，高是３的倍数
 			int mod = w % 4;
 			w += mod;
 			int mul = w / 4;//倍数

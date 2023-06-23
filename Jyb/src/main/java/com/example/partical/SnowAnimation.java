@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 /**
  * 基本雪花效果
  * @author xianfeng
- * 2015�?4�?23�?	上午11:37:58
+ * 2015年4月23日	上午11:37:58
  */
 public class SnowAnimation extends EffectAnimation {
 

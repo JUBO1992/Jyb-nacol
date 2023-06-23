@@ -3,21 +3,21 @@ package com.example.partical;
 import java.util.Random;
 
 /**
- * 效果基础�?
+ * 效果基础元素
  * @author xianfeng
  *
  */
 public abstract class EffectItem implements EffectBase{
 	/**
-	 * 显示区域的宽�?
+	 * 显示区域的宽度
 	 */
 	protected int width;
 	/**
-	 * 显示区域的高�?
+	 * 显示区域的高度
 	 */
 	protected int height;
 	/**
-	 * 效果元素的随机对�?
+	 * 效果元素的随机对象
 	 */
 	protected Random rand;
 	/**

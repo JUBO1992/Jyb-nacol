@@ -53,7 +53,7 @@ import android.view.View;
 	}
 
 	/**
-	 * �?要初始话的效果场�?
+	 * 需要初始话的效果场景
 	 * @return
 	 */
 	protected abstract EffectScence initScence(int itemNum);

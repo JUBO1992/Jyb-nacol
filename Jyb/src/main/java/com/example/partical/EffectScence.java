@@ -21,12 +21,12 @@ public abstract class EffectScence {
 	protected int height;
 	//效果容器
 	protected ArrayList<EffectItem> list = new ArrayList<EffectItem>();
-	//如果有图片的�?要此属�??
+	//如果有图片的�?要此属�??
 	protected Bitmap mBitmap;
 	/**
-	 * 效果场景构�??
-	 * @param width		显示区域�?
-	 * @param height	显示区域�?
+	 * 效果场景构建
+	 * @param width		显示区域宽度
+	 * @param height	显示区域高度
 	 * @param itemNum	显示区域元素数量
 	 */
 	public EffectScence(int width, int height, int itemNum){
@@ -36,9 +36,9 @@ public abstract class EffectScence {
 		initScence();
 	}
 	/**
-	 * 效果场景构�??
-	 * @param width		显示区域�?
-	 * @param height	显示区域�?
+	 * 效果场景构建
+	 * @param width		显示区域宽度
+	 * @param height	显示区域高度
 	 * @param itemNum	显示区域元素数量
 	 * @param itemColor	元素color
 	 */
@@ -66,9 +66,9 @@ public abstract class EffectScence {
 		initScence();
 	}
 	/**
-	 * 效果场景构�??
-	 * @param width		显示区域�?
-	 * @param height	显示区域�?
+	 * 效果场景构建
+	 * @param width		显示区域宽度
+	 * @param height	显示区域高度
 	 * @param itemNum	显示区域元素数量
 	 * @param bitmap	图片
 	 */
@@ -81,13 +81,13 @@ public abstract class EffectScence {
 	}
 	
 	/**
-	 * 必须要实现的初始场景方法，需�?
+	 * 必须要实现的初始场景方法
 	 */
 	protected abstract void initScence();
 	
 	public void draw(Canvas canvas){
 		if(list.size() == 0){
-			throw new RuntimeException("请初在initScence的方法中加入效果元素!");
+			throw new RuntimeException("请先在initScence的方法中加入效果元素!");
 		}
 		for(EffectBase item : list){
 			item.draw(canvas);
@@ -96,7 +96,7 @@ public abstract class EffectScence {
 	
 	public void move(){
 		if(list.size() == 0){
-			throw new RuntimeException("请初在initScence的方法中加入效果元素!");
+			throw new RuntimeException("请先在initScence的方法中加入效果元素!");
 		}
 		for(EffectBase item : list){
 			item.move();
