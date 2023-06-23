@@ -9,7 +9,7 @@ import android.util.Log;
 public class RainPoint extends EffectItem{
 
 	private Paint paint = new Paint();
-	private	final int size = 50;	//长度�?0-50像素
+	private	final int size = 50;	//长度0-50像素
 	private Rect point;		//雨点
 	private Point speed;		//雨点x,y方向速度
 	

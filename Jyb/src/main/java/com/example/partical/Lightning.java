@@ -19,7 +19,7 @@ public class Lightning extends EffectItem{
 	
 	private Paint paint = new Paint();
 	private final int minSize = 10;
-	private final int maxSize = 50; // 长度�?0-50像素
+	private final int maxSize = 50; // 长度0-50像素
 	private ArrayList<Rect> lines = new ArrayList<Rect>();
 	
 	private int alpha = 255;
@@ -62,7 +62,7 @@ public class Lightning extends EffectItem{
 			rect.right = x;
 			rect.bottom = y;
 			lines.add(rect);
-			//加入闪电节点分出的闪�?
+			//加入闪电节点分出的闪烁
 			int len = rand.nextInt(6);
 			for(int i = 0; i < len; i ++){
 				Rect r = new Rect();

@@ -21,7 +21,7 @@ public abstract class EffectScence {
 	protected int height;
 	//效果容器
 	protected ArrayList<EffectItem> list = new ArrayList<EffectItem>();
-	//如果有图片的�?要此属�??
+	//如果有图片的需要此属性
 	protected Bitmap mBitmap;
 	/**
 	 * 效果场景构建

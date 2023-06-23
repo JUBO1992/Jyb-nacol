@@ -26,7 +26,7 @@ public class Star extends EffectItem{
 	private int lightState = 0;
 	private int lightAlpha = 80;
 	
-	//流星移动�?
+	//流星移动速度
 	private int meteorSpeedX;
 	private int meteorSpeedY;
 	private int meteorState = 0;
@@ -133,7 +133,7 @@ public class Star extends EffectItem{
 			break;
 		case LIGHT_FULL:
 			paint.setAlpha(255 - lightAlpha);
-			//绘制横竖�?
+			//绘制横竖
 			canvas.drawLine(point.x - 2 * radius, point.y, point.x + 2 * radius, point.y, paint);
 			canvas.drawLine(point.x, point.y - 2 * radius, point.x, point.y + 2 * radius, paint);
 		case LIGHT_HALF_ALPHA:
