@@ -3,6 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <ImageView
+        android:id="@+id/aboutImgV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="BackgroundView" />
+
     <Button
         android:id="@+id/close_btn"
         style="?metaButtonBarButtonStyle"
@@ -18,9 +24,9 @@
         android:layout_height="80dp"
         android:gravity="center"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="100dp"
         android:text="00岁001天"
-        android:textColor="#389bff"
+        android:textColor="#13227a"
         android:textSize="30dp" />
 
     <TextView
@@ -30,7 +36,7 @@
         android:layout_height="80dp"
         android:gravity="center"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="100dp"
         android:text="00周01天"
         android:textColor="#389bff"
         android:textSize="30dp" />
@@ -39,7 +45,8 @@
         android:id="@+id/author_info"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="120dp"
         android:gravity="center"
         android:text="Created by JUBO"
         android:textColor="#ffffff"
@@ -52,7 +59,7 @@
         android:layout_gravity="center_horizontal|bottom"
         android:layout_marginBottom="60dp"
         android:gravity="center"
-        android:text="Version: 1.8.17\n\nHAPPY BIRTHDAY"
+        android:text="Version:1.8.17\n~Happy Birthday~"
         android:textColor="#ffffff"
         android:textSize="20dp" />
 

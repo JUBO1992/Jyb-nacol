@@ -2,7 +2,6 @@ package com.example;
 
 import org.junit.Test;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -13,7 +12,7 @@ import java.util.Date;
 public class BasicTest {
 
     @Test
-    public void test01() throws ParseException {
+    public void test01() throws Exception {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date d1 = formatter.parse("2023-04-12");
         Date d2 = formatter.parse("2025-04-12");

@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.util.AgeCalculator;
@@ -33,6 +34,26 @@ public class AboutActivity extends Activity {
 		TextView versionText = (TextView)findViewById(R.id.version_info);
 		authorText.setTypeface(fromAsset);
 		versionText.setTypeface(fromAsset);
+
+		ImageView imgView = (ImageView)findViewById(R.id.aboutImgV);
+		String week = DateUtils.getWeek();
+		if(week.equals("星期一")) {
+			imgView.setBackgroundResource(R.drawable.baby01_photo01);
+		}else if(week.equals("星期二")) {
+			imgView.setBackgroundResource(R.drawable.baby01_photo02);
+		}else if(week.equals("星期三")) {
+			imgView.setBackgroundResource(R.drawable.baby01_photo03);
+		}else if(week.equals("星期四")) {
+			imgView.setBackgroundResource(R.drawable.baby01_photo04);
+		}else if(week.equals("星期五")) {
+			imgView.setBackgroundResource(R.drawable.baby01_photo05);
+		}else if(week.equals("星期六")) {
+			imgView.setBackgroundResource(R.drawable.baby01_photo06);
+		}else if(week.equals("星期日")) {
+			imgView.setBackgroundResource(R.drawable.baby01_photo07);
+		}else {
+			imgView.setImageResource(R.drawable.welcome_1);
+		}
 
 		Date today = new Date();
 		DecimalFormat df1 = new DecimalFormat("00");
@@ -65,7 +86,7 @@ public class AboutActivity extends Activity {
 			throw new RuntimeException(e);
 		}
 		AgeCalculator ageCalcUtil = new AgeCalculator(birthDay, today);
-		baby01Age.setText(df1.format(ageCalcUtil.year()) + "岁 " + df2.format(ageCalcUtil.dayOfYear()) + "天");
+		baby01Age.setText("今天我" + df1.format(ageCalcUtil.year()) + "岁" + df2.format(ageCalcUtil.dayOfYear()) + "天啦~");
 	}
 
 	View.OnClickListener btnClickListener = new View.OnClickListener() {

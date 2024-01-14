@@ -134,7 +134,7 @@ public class AgeCalculator {
      * @param date2
      * @return
      */
-    private static Integer differentDays(Date date1, Date date2) {
+    public static Integer differentDays(Date date1, Date date2) {
         if (Objects.isNull(date1) || Objects.isNull(date2)) {
             return null;
         }
@@ -168,7 +168,7 @@ public class AgeCalculator {
         }
     }
 
-    private static Integer daysDifferent(Date date1, Date date2) {
+    public static Integer daysDifferent(Date date1, Date date2) {
         if (Objects.isNull(date1) || Objects.isNull(date2)) {
             return null;
         }
