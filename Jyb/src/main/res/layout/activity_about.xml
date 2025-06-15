@@ -19,26 +19,26 @@
         android:background="@drawable/btnbg_close" />
 
     <TextView
-        android:id="@+id/baby01Age"
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:gravity="center"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
-        android:text="00岁001天"
-        android:textColor="#13227a"
-        android:textSize="30dp" />
-
-    <TextView
         android:visibility="invisible"
         android:id="@+id/gestationWeek"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
         android:gravity="center"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:text="00周01天"
-        android:textColor="#389bff"
+        android:textColor="#ff00ff"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/baby01Age"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="270dp"
+        android:text="00岁001天"
+        android:textColor="#13227a"
         android:textSize="30dp" />
 
     <TextView

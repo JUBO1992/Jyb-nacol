@@ -4,12 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.media.ExifInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
@@ -20,18 +15,12 @@ import android.widget.TextView;
 
 import com.example.util.AgeCalculator;
 import com.example.util.GestationWeek;
-import com.example.util.ImageUtils;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Objects;
 
 public class WelcomeActivity extends Activity {
 	private int interval = 3000;
@@ -107,8 +96,8 @@ public class WelcomeActivity extends Activity {
     	findViewById(R.id.lunarTextV).setVisibility(View.INVISIBLE);
     	findViewById(R.id.skipWelcome_btn).setVisibility(View.VISIBLE);
 //    	solarTextV.setText(m+"月"+d+"日");
-    	solarTextV.setText(DateUtils.getDate());
-		lunarTextV.setText(lm+ld);
+        solarTextV.setText(DateUtils.getDate());
+        lunarTextV.setText(lm+ld);
 
 		interval = 5000;
 		if(m==2 && d==14) {
@@ -182,7 +171,8 @@ public class WelcomeActivity extends Activity {
 		@SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		Date firstDay = null;
 		try {
-			firstDay = formatter.parse("2023-04-12");
+			// firstDay = formatter.parse("2023-04-12");
+			firstDay = formatter.parse("2025-05-19");
 		} catch (ParseException e) {
 			throw new RuntimeException(e);
 		}
@@ -191,6 +181,7 @@ public class WelcomeActivity extends Activity {
 		if (countDay > 300) {
 			findViewById(R.id.gestationWeek).setVisibility(View.INVISIBLE);
 		} else {
+			findViewById(R.id.gestationWeek).setVisibility(View.VISIBLE);
 			gestationWeek.setText(df1.format(gesWeekUtil.weekNum()) + "周" + df1.format(gesWeekUtil.dayNum()) + "天\n"
 					+ "距离预产期" + df2.format(gesWeekUtil.countDown()) + "天");
 		}

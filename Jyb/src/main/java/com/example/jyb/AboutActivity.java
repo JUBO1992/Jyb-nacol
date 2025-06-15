@@ -64,7 +64,8 @@ public class AboutActivity extends Activity {
 		@SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		Date firstDay = null;
 		try {
-			firstDay = formatter.parse("2023-04-12");
+			// firstDay = formatter.parse("2023-04-12");
+			firstDay = formatter.parse("2025-05-19");
 		} catch (ParseException e) {
 			throw new RuntimeException(e);
 		}
@@ -73,6 +74,7 @@ public class AboutActivity extends Activity {
 		if (countDay > 300) {
 			findViewById(R.id.gestationWeek).setVisibility(View.INVISIBLE);
 		} else {
+			findViewById(R.id.gestationWeek).setVisibility(View.VISIBLE);
 			gestationWeek.setText(df1.format(gesWeekUtil.weekNum()) + "周" + df1.format(gesWeekUtil.dayNum()) + "天\n"
 					+ "距离预产期" + df2.format(gesWeekUtil.countDown()) + "天");
 		}
