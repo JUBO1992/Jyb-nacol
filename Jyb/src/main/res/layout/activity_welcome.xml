@@ -39,7 +39,7 @@
 		android:layout_height="80dp"
 		android:gravity="center"
 		android:layout_gravity="bottom|center_horizontal"
-		android:layout_marginBottom="160dp"
+		android:layout_marginBottom="150dp"
 		android:text="00周01天"
 		android:textStyle="bold"
 		android:textColor="#ff00ff"
@@ -51,7 +51,7 @@
 		android:layout_height="80dp"
 		android:gravity="center"
 		android:layout_gravity="bottom|center_horizontal"
-		android:layout_marginBottom="80dp"
+		android:layout_marginBottom="70dp"
 		android:text="00岁001天"
 		android:textStyle="bold"
 		android:textColor="#13227a"
@@ -62,7 +62,7 @@
 	    android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="45dp"
         android:background="@drawable/switchstr" />
 
 </FrameLayout>

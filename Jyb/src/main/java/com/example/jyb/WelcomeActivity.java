@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -99,6 +100,8 @@ public class WelcomeActivity extends Activity {
         solarTextV.setText(DateUtils.getDate());
         lunarTextV.setText(lm+ld);
 
+		TextView gestationWeek = (TextView)findViewById(R.id.gestationWeek);
+
 		interval = 5000;
 		if(m==2 && d==14) {
 			imgView.setBackgroundResource(R.drawable.welcome01);
@@ -148,8 +151,15 @@ public class WelcomeActivity extends Activity {
     		}else if(week.equals("星期五")) {
 				if (Math.random() > 0.5) {
 					imgView.setBackgroundResource(R.drawable.welcome18);
+					gestationWeek.setTextColor(0xFFFFFFFF);
 				} else {
 					imgView.setBackgroundResource(R.drawable.baby01_photo05);
+					ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) gestationWeek.getLayoutParams();
+					float density = getResources().getDisplayMetrics().density;
+					int dpValue = 150;
+					int pxValue = (int) (dpValue * density);
+					params.bottomMargin=pxValue;
+					gestationWeek.setLayoutParams(params);
 				}
     		}else if(week.equals("星期六")) {
     			// imgView.setBackgroundResource(R.drawable.welcome19);
@@ -166,7 +176,6 @@ public class WelcomeActivity extends Activity {
 		DecimalFormat df1 = new DecimalFormat("00");
 		DecimalFormat df2 = new DecimalFormat("000");
 
-		TextView gestationWeek = (TextView)findViewById(R.id.gestationWeek);
 		gestationWeek.setTypeface(fromAsset);
 		@SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		Date firstDay = null;
