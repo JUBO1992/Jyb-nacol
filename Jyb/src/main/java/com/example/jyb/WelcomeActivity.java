@@ -168,7 +168,7 @@ public class WelcomeActivity extends Activity {
     			// imgView.setBackgroundResource(R.drawable.welcome20);
 				imgView.setBackgroundResource(R.drawable.baby01_photo07);
 			}else {
-        		imgView.setImageResource(R.drawable.welcome_1);
+        		imgView.setBackgroundResource(R.drawable.welcome_1);
     		}
     	}
 
