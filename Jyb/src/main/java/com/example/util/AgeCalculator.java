@@ -108,6 +108,52 @@ public class AgeCalculator {
         }
     }
 
+    /**
+     * 计算年龄的月数（不包含年份）
+     * @return 月数
+     */
+    public Integer month() {
+        if (Objects.isNull(period)) {
+            return null;
+        }
+        LocalDate d1 = this.birthDay.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate d2 = this.currentDay.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        int birthMonth = d1.getMonthValue();
+        int currentMonth = d2.getMonthValue();
+        int birthDay = d1.getDayOfMonth();
+        int currentDay = d2.getDayOfMonth();
+        int monthDiff = currentMonth - birthMonth;
+        if (currentDay < birthDay) {
+            monthDiff--;
+        }
+        if (monthDiff < 0) {
+            monthDiff += 12;
+        }
+        return monthDiff;
+    }
+
+    /**
+     * 计算年龄的天数（不包含年份和月份），出生当天算第一天
+     * @return 天数
+     */
+    public Integer day() {
+        if (Objects.isNull(period)) {
+            return null;
+        }
+        LocalDate d1 = this.birthDay.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate d2 = this.currentDay.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        int birthDay = d1.getDayOfMonth();
+        int currentDay = d2.getDayOfMonth();
+        if (currentDay >= birthDay) {
+            return currentDay - birthDay + 1; // 出生当天算第一天
+        } else {
+            // 计算上个月的天数
+            LocalDate lastMonth = d2.minusMonths(1);
+            int lastMonthDays = lastMonth.lengthOfMonth();
+            return lastMonthDays - birthDay + currentDay + 1; // 出生当天算第一天
+        }
+    }
+
     private static boolean isLeapYear(int year) {
         if(year%4==0 && year%100!=0 || year%400==0) {
             return true;
